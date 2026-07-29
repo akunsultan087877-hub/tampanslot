@@ -24,6 +24,54 @@ padding:15px;
 position:relative;
 }
 
+/* ===== SPLASH SCREEN (TANPA FOTO) ===== */
+.splash{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#0d0518;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:100;
+transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+.splash.hide{
+opacity:0;
+visibility:hidden;
+pointer-events:none;
+}
+.splash-text{
+color:#f0e6ff;
+font-size:32px;
+font-weight:800;
+letter-spacing:2px;
+background:linear-gradient(90deg,#c44dff,#e080ff,#b060ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+background-clip:text;
+animation: splashText 1.5s ease-in-out infinite alternate;
+}
+@keyframes splashText{
+0%{ opacity:0.75; transform:scale(1); filter:drop-shadow(0 0 10px rgba(180,100,255,0.4)); }
+100%{ opacity:1; transform:scale(1.05); filter:drop-shadow(0 0 25px rgba(200,120,255,0.8)); }
+}
+.splash-sub{
+margin-top:12px;
+color:rgba(220,200,255,0.75);
+font-size:14px;
+letter-spacing:3px;
+text-transform:uppercase;
+animation: splashSub 1.5s ease-in-out infinite alternate;
+}
+@keyframes splashSub{
+0%{ opacity:0.5; }
+100%{ opacity:1; }
+}
+
 /* ===== LATAR UNGU TUA ===== */
 .bg-animation{
 position:fixed;
@@ -171,6 +219,13 @@ padding:10px 5px;
 text-align:center;
 position:relative;
 z-index:5;
+opacity:0;
+transform:translateY(20px);
+transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.container.show{
+opacity:1;
+transform:translateY(0);
 }
 
 /* Foto */
@@ -350,16 +405,25 @@ transform:scale(1.1);
 .photo{ width:140px; height:140px; }
 .welcome{ font-size:21px; }
 .welcome span{ font-size:18px; }
+.splash-text{ font-size:26px; }
 .btn{ padding:15px 16px; font-size:15px; }
 .arrow{ width:36px; height:36px; font-size:18px; }
 }
 @media (min-width:420px){
 .photo{ width:175px; height:175px; }
 .welcome{ font-size:26px; }
+.splash-text{ font-size:36px; }
 }
 </style>
 </head>
 <body>
+
+<!-- ===== SPLASH / LOGO PENYAMBUTAN (TANPA FOTO) ===== -->
+<div class="splash" id="splash">
+  <div class="splash-text">TAMPAN SLOT</div>
+  <div class="splash-sub">Selamat Datang</div>
+</div>
+
 <!-- LATAR UNGU TUA -->
 <div class="bg-animation"></div>
 <div class="web"></div>
@@ -369,12 +433,15 @@ transform:scale(1.1);
 <!-- Layer petir layar -->
 <div class="lightning" id="lightning"></div>
 
-<div class="container">
+<!-- ===== HALAMAN UTAMA ===== -->
+<div class="container" id="mainPage">
   <img src="https://i.postimg.cc/rpcwK3NN/Chat-GPT-Image-15-Jun-2026-02-00-40.png" alt="Tampan Slot" class="photo">
+  
   <div class="welcome" id="welcomeText">
     Selamat Datang di<br>
     <span>TAMPAN SLOT</span>
   </div>
+
   <a class="btn" href="https://tampanslot1.lat/daftar?ref=gantengkali2">
     LOGIN
     <span class="arrow">➜</span>
@@ -394,6 +461,12 @@ transform:scale(1.1);
 </div>
 
 <script>
+// ===== SPLASH 5 DETIK LALU MASUK HALAMAN UTAMA =====
+setTimeout(() => {
+  document.getElementById('splash').classList.add('hide');
+  document.getElementById('mainPage').classList.add('show');
+}, 5000);
+
 // ===== SALJU =====
 function createSnowflakes() {
   const snowCount = 60;
@@ -420,6 +493,7 @@ createSnowflakes();
 // ===== PETIR DARI TULISAN =====
 function createTextBolt() {
   const welcome = document.getElementById('welcomeText');
+  if (!welcome) return;
   const rect = welcome.getBoundingClientRect();
 
   const bolt = document.createElement('div');
@@ -446,6 +520,7 @@ function createTextBolt() {
 
 function flashText() {
   const welcome = document.getElementById('welcomeText');
+  if (!welcome) return;
   welcome.classList.remove('flash-text');
   void welcome.offsetWidth;
   welcome.classList.add('flash-text');
@@ -459,18 +534,15 @@ function flashText() {
 // ===== TOMBOL MENYALA BERGANTIAN ACAK =====
 function flashButtonsRandom() {
   const buttons = Array.from(document.querySelectorAll('.btn'));
-  // Acak urutan tombol
   const shuffled = buttons.sort(() => Math.random() - 0.5);
-
-  // Nyalakan 1–3 tombol secara bergantian
   const howMany = 1 + Math.floor(Math.random() * 3);
 
   shuffled.slice(0, howMany).forEach((btn, index) => {
     setTimeout(() => {
       btn.classList.remove('lightning-glow');
-      void btn.offsetWidth; // reset animasi
+      void btn.offsetWidth;
       btn.classList.add('lightning-glow');
-    }, index * 90); // delay bergantian
+    }, index * 90);
   });
 }
 
@@ -508,7 +580,6 @@ function triggerLightning() {
     setTimeout(createBolt, 80 + Math.random() * 120);
   }
 
-  // Tulisan + tombol ikut menyala
   flashText();
   flashButtonsRandom();
 }
@@ -520,9 +591,8 @@ function scheduleLightning() {
     scheduleLightning();
   }, delay);
 }
-scheduleLightning();
+setTimeout(scheduleLightning, 5500);
 
-// Petir tulisan + tombol lebih sering
 function scheduleTextLightning() {
   const delay = 2500 + Math.random() * 2500;
   setTimeout(() => {
@@ -531,7 +601,7 @@ function scheduleTextLightning() {
     scheduleTextLightning();
   }, delay);
 }
-scheduleTextLightning();
+setTimeout(scheduleTextLightning, 5500);
 
 // ===== RIPPLE =====
 document.querySelectorAll('.btn').forEach(btn => {
