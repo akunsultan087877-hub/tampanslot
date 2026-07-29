@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAMPANSLOT</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -12,55 +15,69 @@ box-sizing:border-box;
 }
 
 body{
-background:#0d1117;
-font-family:Arial,Helvetica,sans-serif;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(-45deg,#6dd5fa,#ffffff,#ffe29f,#ffb6c1);
+background-size:400% 400%;
+animation:bg 12s ease infinite;
 display:flex;
 justify-content:center;
 align-items:center;
 min-height:100vh;
-padding:20px;
+padding:25px;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
 .menu{
 width:100%;
 max-width:420px;
+background:rgba(255,255,255,.18);
+backdrop-filter:blur(15px);
+padding:20px;
+border-radius:30px;
+box-shadow:0 20px 50px rgba(0,0,0,.25);
 }
 
 /* Banner */
+
 .logo{
-width:100%;
 overflow:hidden;
 border-radius:22px;
-margin-bottom:22px;
-box-shadow:0 15px 40px rgba(0,0,0,.5);
+margin-bottom:25px;
+box-shadow:0 10px 30px rgba(0,0,0,.25);
 }
 
 .logo img{
 width:100%;
 display:block;
-transition:.4s;
+transition:.5s;
 }
 
 .logo:hover img{
-transform:scale(1.03);
+transform:scale(1.04);
 }
 
 /* Tombol */
+
 .btn{
 position:relative;
 display:flex;
 justify-content:space-between;
 align-items:center;
 text-decoration:none;
-color:#fff;
 padding:18px 22px;
 margin:15px 0;
 border-radius:18px;
+color:#fff;
 font-size:18px;
-font-weight:bold;
+font-weight:700;
 overflow:hidden;
 transition:.35s;
-box-shadow:0 8px 25px rgba(0,0,0,.35);
+box-shadow:0 10px 25px rgba(0,0,0,.2);
 }
 
 .btn::before{
@@ -70,7 +87,7 @@ top:0;
 left:-120%;
 width:70%;
 height:100%;
-background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);
 transform:skewX(-25deg);
 transition:.8s;
 }
@@ -80,53 +97,69 @@ left:150%;
 }
 
 .btn:hover{
-transform:translateY(-4px);
-box-shadow:0 15px 35px rgba(0,0,0,.5);
+transform:translateY(-5px) scale(1.03);
+box-shadow:0 18px 35px rgba(0,0,0,.28);
 }
 
 .icon{
-width:42px;
-height:42px;
+width:44px;
+height:44px;
 display:flex;
-align-items:center;
 justify-content:center;
-background:rgba(255,255,255,.18);
+align-items:center;
 border-radius:50%;
+background:rgba(255,255,255,.25);
 font-size:20px;
-transition:.3s;
+transition:.35s;
 }
 
 .btn:hover .icon{
-transform:translateX(5px);
-background:rgba(255,255,255,.28);
+transform:translateX(6px) rotate(-10deg);
+background:rgba(255,255,255,.4);
 }
 
+/* Warna */
+
 .blue{
-background:linear-gradient(135deg,#28a9ff,#0058c8);
+background:linear-gradient(135deg,#00B4FF,#007BFF);
 }
 
 .purple{
-background:linear-gradient(135deg,#a54dff,#5d22d7);
+background:linear-gradient(135deg,#B721FF,#7F00FF);
 }
 
 .red{
-background:linear-gradient(135deg,#ff6464,#d10000);
+background:linear-gradient(135deg,#FF6A88,#FF3D67);
 }
 
 .green{
-background:linear-gradient(135deg,#00db7a,#008f4b);
+background:linear-gradient(135deg,#00D26A,#00A651);
+}
+
+/* Footer */
+
+.footer{
+margin-top:18px;
+text-align:center;
+color:#444;
+font-size:13px;
+font-weight:600;
 }
 
 @media(max-width:480px){
 
+.menu{
+padding:16px;
+}
+
 .btn{
-padding:16px 18px;
 font-size:16px;
+padding:16px 18px;
 }
 
 .icon{
-width:38px;
-height:38px;
+width:40px;
+height:40px;
 }
 
 }
@@ -138,28 +171,32 @@ height:38px;
 <div class="menu">
 
 <div class="logo">
-<img src="banner.png" alt="TAMPANSLOT">
+<img src="banner.png" alt="Banner">
 </div>
 
 <a class="btn blue" href="https://tampanslot1.lat/daftar?ref=gantengkali2" target="_blank">
-<span>LOGIN</span>
+<span>🔑 LOGIN</span>
 <div class="icon">➜</div>
 </a>
 
 <a class="btn purple" href="https://tampanslot1.lat/daftar?ref=gantengkali2" target="_blank">
-<span>LINK UTAMA</span>
+<span>🌐 LINK UTAMA</span>
 <div class="icon">➜</div>
 </a>
 
 <a class="btn red" href="https://tampanslot1.lat/daftar?ref=gantengkali2" target="_blank">
-<span>INFORMASI</span>
+<span>📢 INFORMASI</span>
 <div class="icon">➜</div>
 </a>
 
 <a class="btn green" href="https://tampanslot1.lat/daftar?ref=gantengkali2" target="_blank">
-<span>HUBUNGI KAMI</span>
+<span>💬 HUBUNGI KAMI</span>
 <div class="icon">➜</div>
 </a>
+
+<div class="footer">
+✨ Selamat Datang ✨
+</div>
 
 </div>
 
