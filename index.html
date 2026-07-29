@@ -3,165 +3,140 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TAMPAN</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
-background:linear-gradient(135deg,#2b3127,#475240);
-padding:20px;
+    background:#0d1117;
+    font-family:Arial,Helvetica,sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
 }
 
-.card{
-width:380px;
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(15px);
-border-radius:28px;
-padding:35px;
-box-shadow:0 20px 40px rgba(0,0,0,.4);
-border:1px solid rgba(255,255,255,.08);
-}
-
-.logo{
-width:95px;
-height:95px;
-margin:auto;
-border-radius:50%;
-overflow:hidden;
-border:4px solid rgba(255,255,255,.15);
-margin-bottom:20px;
-}
-
-.logo img{
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-.small{
-text-align:center;
-color:#ddd;
-letter-spacing:5px;
-font-size:12px;
-margin-bottom:8px;
-}
-
-h1{
-text-align:center;
-color:#fff;
-font-size:52px;
-margin-bottom:30px;
+.menu{
+    width:100%;
+    max-width:420px;
+    padding:20px;
 }
 
 .btn{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 24px;
-border-radius:60px;
-margin-bottom:18px;
-text-decoration:none;
-color:#fff;
-font-weight:700;
-position:relative;
-overflow:hidden;
-transition:.3s;
-box-shadow:0 10px 25px rgba(0,0,0,.35);
-}
-
-.btn:hover{
-transform:translateY(-3px);
+    position:relative;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    text-decoration:none;
+    color:#fff;
+    padding:18px 22px;
+    margin:15px 0;
+    border-radius:18px;
+    overflow:hidden;
+    font-size:18px;
+    font-weight:700;
+    letter-spacing:.5px;
+    transition:.35s;
+    box-shadow:0 8px 20px rgba(0,0,0,.35);
 }
 
 .btn::before{
-content:"";
-position:absolute;
-left:-120%;
-top:0;
-width:60%;
-height:100%;
-background:rgba(255,255,255,.25);
-transform:skewX(-20deg);
-transition:.6s;
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:80%;
+    height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);
+    transform:skewX(-25deg);
+    transition:.7s;
 }
 
 .btn:hover::before{
-left:150%;
+    left:140%;
 }
 
-.blue{
-background:linear-gradient(90deg,#38b6ff,#548dff);
-}
-
-.purple{
-background:linear-gradient(90deg,#6d5dff,#7f82ff);
-}
-
-.red{
-background:linear-gradient(90deg,#ff4267,#ff5c7b);
-}
-
-.green{
-background:linear-gradient(90deg,#00d84f,#25da60);
+.btn:hover{
+    transform:translateY(-4px) scale(1.02);
+    box-shadow:0 14px 35px rgba(0,0,0,.45);
 }
 
 .icon{
-width:42px;
-height:42px;
-border-radius:50%;
-background:rgba(255,255,255,.18);
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:18px;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:rgba(255,255,255,.2);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    transition:.3s;
+}
+
+.btn:hover .icon{
+    transform:translateX(6px) rotate(-8deg);
+    background:rgba(255,255,255,.3);
+}
+
+/* Warna */
+
+.blue{
+    background:linear-gradient(135deg,#2196f3,#1565c0);
+}
+
+.purple{
+    background:linear-gradient(135deg,#8e24aa,#5e35b1);
+}
+
+.red{
+    background:linear-gradient(135deg,#ff5252,#d50000);
+}
+
+.green{
+    background:linear-gradient(135deg,#00c853,#2e7d32);
+}
+
+@media(max-width:480px){
+
+.btn{
+    font-size:16px;
+    padding:16px 18px;
+}
+
+.icon{
+    width:38px;
+    height:38px;
+}
 }
 </style>
-</head>
 
+</head>
 <body>
 
-<div class="card">
+<div class="menu">
 
-<div class="logo">
-<img src="logo.png" alt="Logo">
-</div>
-
-<div class="small">
-WELCOME
-</div>
-
-<h1>TAMPAN</h1>
-
-<a class="btn blue" href="#">
-<span>LOGIN</span>
-<div class="icon">➜</div>
+<a class="btn blue" href="https://tampanslot1.lat/daftar?ref=gantengkali2" target="_blank">
+    <span>LOGIN</span>
+    <div class="icon">➜</div>
 </a>
 
-<a class="btn purple" href="#">
-<span>LINK UTAMA</span>
-<div class="icon">➜</div>
+<a class="btn purple" href="https://tampanslot1.lat/daftar?ref=gantengkali2" target="_blank">
+    <span>LINK UTAMA</span>
+    <div class="icon">➜</div>
 </a>
 
-<a class="btn red" href="#">
-<span>INFORMASI</span>
-<div class="icon">➜</div>
+<a class="btn red" href="https://tampanslot1.lat/daftar?ref=gantengkali2" target="_blank">
+    <span>INFORMASI</span>
+    <div class="icon">➜</div>
 </a>
 
-<a class="btn green" href="#">
-<span>HUBUNGI KAMI</span>
-<div class="icon">➜</div>
+<a class="btn green" href="https://tampanslot1.lat/daftar?ref=gantengkali2" target="_blank">
+    <span>HUBUNGI KAMI</span>
+    <div class="icon">➜</div>
 </a>
 
 </div>
