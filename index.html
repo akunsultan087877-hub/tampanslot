@@ -92,6 +92,48 @@ animation-delay:4s;
 50%{ transform:translate(35px,28px) scale(1.2); }
 }
 
+/* ===== EFEK PETIR ===== */
+.lightning{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:2;
+opacity:0;
+background:transparent;
+}
+.lightning.flash{
+animation: lightningFlash 0.35s ease-out;
+}
+@keyframes lightningFlash{
+0%{ opacity:0; background:rgba(180,220,255,0); }
+10%{ opacity:1; background:rgba(200,230,255,0.35); }
+20%{ opacity:0.3; background:rgba(180,220,255,0.15); }
+30%{ opacity:0.9; background:rgba(220,240,255,0.4); }
+50%{ opacity:0.2; background:rgba(180,220,255,0.1); }
+100%{ opacity:0; background:transparent; }
+}
+
+/* Garis petir */
+.bolt{
+position:fixed;
+pointer-events:none;
+z-index:3;
+opacity:0;
+filter:drop-shadow(0 0 8px #a0d8ff) drop-shadow(0 0 20px #4da6ff);
+}
+.bolt.show{
+animation: boltAppear 0.4s ease-out forwards;
+}
+@keyframes boltAppear{
+0%{ opacity:0; transform:scaleY(0.3); }
+15%{ opacity:1; transform:scaleY(1); }
+70%{ opacity:0.9; }
+100%{ opacity:0; transform:scaleY(1); }
+}
+
 /* ===== SALJU JATUH LEMBUT ===== */
 .snowflake{
 position:fixed;
@@ -107,17 +149,17 @@ text-shadow:0 0 6px rgba(180,220,255,0.8);
 }
 @keyframes snowfall{
 0%{
-transform:translateY(0) translateX(0) rotate(0deg);
+transform:translateY(-10vh) translateX(0) rotate(0deg);
 opacity:0;
 }
 10%{
-opacity:0.8;
+opacity:0.75;
 }
 90%{
-opacity:0.6;
+opacity:0.5;
 }
 100%{
-transform:translateY(110vh) translateX(30px) rotate(360deg);
+transform:translateY(110vh) translateX(var(--drift, 20px)) rotate(360deg);
 opacity:0;
 }
 }
@@ -128,7 +170,7 @@ max-width:400px;
 padding:10px 5px;
 text-align:center;
 position:relative;
-z-index:1;
+z-index:5;
 }
 
 /* Foto */
@@ -266,6 +308,9 @@ transform:scale(1.1);
 <div class="glow red"></div>
 <div class="glow blue"></div>
 
+<!-- Layer petir -->
+<div class="lightning" id="lightning"></div>
+
 <div class="container">
   <img src="https://i.postimg.cc/rpcwK3NN/Chat-GPT-Image-15-Jun-2026-02-00-40.png" alt="Tampan Slot" class="photo">
   <div class="welcome">
@@ -293,61 +338,76 @@ transform:scale(1.1);
 <script>
 // ===== SALJU BANYAK & LEMBUT =====
 function createSnowflakes() {
-  const snowCount = 60; // banyak salju
+  const snowCount = 60;
   const symbols = ['❄', '❅', '❆', '•', '·'];
 
   for (let i = 0; i < snowCount; i++) {
     const flake = document.createElement('div');
     flake.classList.add('snowflake');
     flake.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
-
-    // Posisi horizontal acak
     flake.style.left = Math.random() * 100 + 'vw';
-
-    // Ukuran acak (kecil - sedang)
     const size = Math.random() * 14 + 8;
     flake.style.fontSize = size + 'px';
-
-    // Opacity lembut
     flake.style.opacity = Math.random() * 0.5 + 0.3;
-
-    // Durasi jatuh (lambat & lembut)
-    const duration = Math.random() * 12 + 10; // 10-22 detik
+    const duration = Math.random() * 12 + 10;
     flake.style.animationDuration = duration + 's';
-
-    // Delay acak supaya tidak bareng
     flake.style.animationDelay = Math.random() * 15 + 's';
-
-    // Goyangan horizontal sedikit berbeda
     const drift = (Math.random() * 60 - 30) + 'px';
     flake.style.setProperty('--drift', drift);
-
     document.body.appendChild(flake);
   }
 }
-
-// Update animasi supaya ada goyangan
-const style = document.createElement('style');
-style.innerHTML = `
-@keyframes snowfall{
-0%{
-transform:translateY(-10vh) translateX(0) rotate(0deg);
-opacity:0;
-}
-10%{
-opacity:0.75;
-}
-90%{
-opacity:0.5;
-}
-100%{
-transform:translateY(110vh) translateX(var(--drift, 20px)) rotate(360deg);
-opacity:0;
-}
-}`;
-document.head.appendChild(style);
-
 createSnowflakes();
+
+// ===== EFEK PETIR =====
+function createBolt() {
+  const bolt = document.createElement('div');
+  bolt.classList.add('bolt');
+
+  // Bentuk petir acak (zigzag sederhana pakai SVG)
+  const height = 180 + Math.random() * 220;
+  const startX = 10 + Math.random() * 80; // % dari kiri
+
+  bolt.innerHTML = `
+    <svg width="40" height="${height}" viewBox="0 0 40 ${height}" fill="none">
+      <path d="M20 0 L12 70 L22 70 L8 ${height} L28 90 L18 90 L30 0 Z" 
+            fill="#e0f4ff" stroke="#a0d8ff" stroke-width="1.5"/>
+    </svg>
+  `;
+
+  bolt.style.left = startX + 'vw';
+  bolt.style.top = Math.random() * 15 + 'vh';
+  document.body.appendChild(bolt);
+
+  // Tampilkan
+  requestAnimationFrame(() => bolt.classList.add('show'));
+
+  // Hapus setelah animasi
+  setTimeout(() => bolt.remove(), 500);
+}
+
+function triggerLightning() {
+  const lightning = document.getElementById('lightning');
+  lightning.classList.remove('flash');
+  void lightning.offsetWidth; // reset animasi
+  lightning.classList.add('flash');
+
+  // Kadang muncul 1-2 petir
+  createBolt();
+  if (Math.random() > 0.5) {
+    setTimeout(createBolt, 80 + Math.random() * 120);
+  }
+}
+
+// Petir muncul acak setiap 4–10 detik
+function scheduleLightning() {
+  const delay = 4000 + Math.random() * 6000;
+  setTimeout(() => {
+    triggerLightning();
+    scheduleLightning();
+  }, delay);
+}
+scheduleLightning();
 
 // ===== RIPPLE EFFECT =====
 document.querySelectorAll('.btn').forEach(btn => {
