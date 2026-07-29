@@ -4,16 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Premium Landing</title>
-
 <style>
-
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:Arial,sans-serif;
 }
-
 body{
 display:flex;
 justify-content:center;
@@ -22,9 +19,7 @@ min-height:100vh;
 overflow:hidden;
 background:#050816;
 }
-
 /* Background Animasi */
-
 body::before{
 content:"";
 position:fixed;
@@ -39,21 +34,15 @@ animation:movebg 18s linear infinite;
 z-index:-2;
 filter:blur(25px);
 }
-
 @keyframes movebg{
-
 0%{
 transform:rotate(0deg) scale(1);
 }
-
 100%{
 transform:rotate(360deg) scale(1.2);
 }
-
 }
-
 /* Partikel */
-
 .particle{
 position:fixed;
 width:5px;
@@ -64,124 +53,81 @@ opacity:.5;
 animation:float 12s linear infinite;
 z-index:-1;
 }
-
 @keyframes float{
-
 0%{
 transform:translateY(110vh);
 opacity:0;
 }
-
 20%{
 opacity:1;
 }
-
 100%{
 transform:translateY(-120vh);
 opacity:0;
 }
-
 }
-
 .container{
-
 width:420px;
 max-width:95%;
 padding:25px;
-
 }
-
 /* Tombol */
-
 .btn{
-
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:18px 22px;
 margin:18px 0;
-
 text-decoration:none;
 color:white;
-
 border-radius:18px;
-
 font-size:18px;
 font-weight:bold;
-
 background:linear-gradient(135deg,#ff003c,#0048ff);
-
 box-shadow:
 0 0 15px rgba(255,0,60,.5),
 0 0 30px rgba(0,72,255,.35);
-
 transition:.35s;
-
 position:relative;
 overflow:hidden;
-
 }
-
 .btn:before{
-
 content:"";
 position:absolute;
 left:-120%;
 top:0;
-
 width:60%;
 height:100%;
-
 background:
 linear-gradient(90deg,
 transparent,
 rgba(255,255,255,.6),
 transparent);
-
 transform:skewX(-30deg);
-
 transition:.8s;
-
 }
-
 .btn:hover:before{
-
 left:160%;
-
 }
-
 .btn:hover{
-
 transform:translateY(-5px) scale(1.03);
-
 box-shadow:
 0 0 25px red,
 0 0 45px blue;
-
 }
-
 .arrow{
-
 width:45px;
 height:45px;
-
 display:flex;
 justify-content:center;
 align-items:center;
-
 border-radius:50%;
-
 background:rgba(255,255,255,.18);
-
 font-size:22px;
-
 }
-
 </style>
 </head>
-
 <body>
-
 <div class="particle" style="left:5%;animation-delay:0s"></div>
 <div class="particle" style="left:15%;animation-delay:2s"></div>
 <div class="particle" style="left:25%;animation-delay:4s"></div>
@@ -192,30 +138,23 @@ font-size:22px;
 <div class="particle" style="left:75%;animation-delay:2s"></div>
 <div class="particle" style="left:85%;animation-delay:4s"></div>
 <div class="particle" style="left:95%;animation-delay:1s"></div>
-
 <div class="container">
-
-<a class="btn" href="#">
+<a class="btn" href="https://tampanslot1.lat/daftar?ref=gantengkali2">
 LOGIN
 <span class="arrow">➜</span>
 </a>
-
-<a class="btn" href="#">
+<a class="btn" href="https://tampanslot1.lat/daftar?ref=gantengkali2">
 LINK UTAMA
 <span class="arrow">➜</span>
 </a>
-
-<a class="btn" href="#">
+<a class="btn" href="https://tampanslot1.lat/daftar?ref=gantengkali2">
 LINK GACOR
 <span class="arrow">➜</span>
 </a>
-
-<a class="btn" href="#">
+<a class="btn" href="https://tampanslot1.lat/daftar?ref=gantengkali2">
 BONUS TERBARU
 <span class="arrow">➜</span>
 </a>
-
 </div>
-
 </body>
 </html>
