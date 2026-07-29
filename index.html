@@ -1,63 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAMPAN</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
 body{
-    font-family:Poppins,sans-serif;
-    background:
-    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-    url("https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80");
-    background-size:cover;
-    background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+background:linear-gradient(135deg,#2b3127,#475240);
+padding:20px;
 }
 
 .card{
-    width:380px;
-    padding:35px;
-    border-radius:30px;
-    background:rgba(255,255,255,.06);
-    backdrop-filter:blur(20px);
-    border:1px solid rgba(255,255,255,.12);
-    box-shadow:0 0 40px rgba(0,0,0,.5);
+width:380px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+border-radius:28px;
+padding:35px;
+box-shadow:0 20px 40px rgba(0,0,0,.4);
+border:1px solid rgba(255,255,255,.08);
 }
 
 .logo{
-    width:100px;
-    height:100px;
-    margin:auto;
-    border-radius:50%;
-    overflow:hidden;
-    border:3px solid #58b8ff;
-    box-shadow:0 0 25px #58b8ff;
+width:95px;
+height:95px;
+margin:auto;
+border-radius:50%;
+overflow:hidden;
+border:4px solid rgba(255,255,255,.15);
+margin-bottom:20px;
+}
+
+.logo img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.small{
+text-align:center;
+color:#ddd;
+letter-spacing:5px;
+font-size:12px;
+margin-bottom:8px;
+}
+
+h1{
+text-align:center;
+color:#fff;
+font-size:52px;
+margin-bottom:30px;
 }
 
 .btn{
-    position:relative;
-    overflow:hidden;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px 25px;
-    margin-top:18px;
-    border-radius:60px;
-    color:#fff;
-    text-decoration:none;
-    font-weight:700;
-    transition:.3s;
-}
-
-.btn::before{
-    content:"";
-    position:absolute;
-    left:-100%;
-    top:0;
-    width:60%;
-    height:100%;
-    background:rgba(255,255,255,.25);
-    transform:skewX(-25deg);
-    transition:.5s;
-}
-
-.btn:hover::before{
-    left:140%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 24px;
+border-radius:60px;
+margin-bottom:18px;
+text-decoration:none;
+color:#fff;
+font-weight:700;
+position:relative;
+overflow:hidden;
+transition:.3s;
+box-shadow:0 10px 25px rgba(0,0,0,.35);
 }
 
 .btn:hover{
-    transform:translateY(-4px);
+transform:translateY(-3px);
 }
+
+.btn::before{
+content:"";
+position:absolute;
+left:-120%;
+top:0;
+width:60%;
+height:100%;
+background:rgba(255,255,255,.25);
+transform:skewX(-20deg);
+transition:.6s;
+}
+
+.btn:hover::before{
+left:150%;
+}
+
+.blue{
+background:linear-gradient(90deg,#38b6ff,#548dff);
+}
+
+.purple{
+background:linear-gradient(90deg,#6d5dff,#7f82ff);
+}
+
+.red{
+background:linear-gradient(90deg,#ff4267,#ff5c7b);
+}
+
+.green{
+background:linear-gradient(90deg,#00d84f,#25da60);
+}
+
+.icon{
+width:42px;
+height:42px;
+border-radius:50%;
+background:rgba(255,255,255,.18);
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:18px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="logo">
+<img src="logo.png" alt="Logo">
+</div>
+
+<div class="small">
+WELCOME
+</div>
+
+<h1>TAMPAN</h1>
+
+<a class="btn blue" href="#">
+<span>LOGIN</span>
+<div class="icon">➜</div>
+</a>
+
+<a class="btn purple" href="#">
+<span>LINK UTAMA</span>
+<div class="icon">➜</div>
+</a>
+
+<a class="btn red" href="#">
+<span>INFORMASI</span>
+<div class="icon">➜</div>
+</a>
+
+<a class="btn green" href="#">
+<span>HUBUNGI KAMI</span>
+<div class="icon">➜</div>
+</a>
+
+</div>
+
+</body>
+</html>
