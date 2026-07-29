@@ -19,12 +19,12 @@ align-items:center;
 min-height:100vh;
 min-height:100dvh;
 overflow:hidden;
-background:#050d1f;
+background:#0d0518;
 padding:15px;
 position:relative;
 }
 
-/* ===== LATAR BIRU DARK ===== */
+/* ===== LATAR UNGU TUA ===== */
 .bg-animation{
 position:fixed;
 top:0;
@@ -33,19 +33,19 @@ width:100%;
 height:100%;
 z-index:-3;
 background:
-radial-gradient(circle at 20% 30%, rgba(0,80,200,0.35) 0%, transparent 45%),
-radial-gradient(circle at 80% 20%, rgba(0,140,255,0.25) 0%, transparent 40%),
-radial-gradient(circle at 70% 80%, rgba(0,60,180,0.3) 0%, transparent 45%),
-radial-gradient(circle at 30% 70%, rgba(0,100,220,0.2) 0%, transparent 40%),
-#050d1f;
+radial-gradient(circle at 20% 30%, rgba(120,40,180,0.4) 0%, transparent 45%),
+radial-gradient(circle at 80% 20%, rgba(160,60,220,0.3) 0%, transparent 40%),
+radial-gradient(circle at 70% 80%, rgba(90,20,140,0.35) 0%, transparent 45%),
+radial-gradient(circle at 30% 70%, rgba(140,50,200,0.25) 0%, transparent 40%),
+#0d0518;
 animation: bgPulse 8s ease-in-out infinite alternate;
 }
 @keyframes bgPulse{
 0%{ filter:hue-rotate(0deg) brightness(1); }
-100%{ filter:hue-rotate(10deg) brightness(1.12); }
+100%{ filter:hue-rotate(8deg) brightness(1.12); }
 }
 
-/* Grid / web biru */
+/* Grid ungu */
 .web{
 position:fixed;
 top:0;
@@ -54,8 +54,8 @@ width:100%;
 height:100%;
 z-index:-2;
 background-image:
-linear-gradient(rgba(0,140,255,0.06) 1px, transparent 1px),
-linear-gradient(90deg, rgba(0,140,255,0.06) 1px, transparent 1px);
+linear-gradient(rgba(160,80,255,0.07) 1px, transparent 1px),
+linear-gradient(90deg, rgba(160,80,255,0.07) 1px, transparent 1px);
 background-size:55px 55px;
 animation: webMove 20s linear infinite;
 opacity:0.7;
@@ -65,7 +65,7 @@ opacity:0.7;
 100%{ background-position:55px 55px; }
 }
 
-/* Cahaya biru bergerak */
+/* Cahaya ungu bergerak */
 .glow{
 position:fixed;
 width:300px;
@@ -73,16 +73,16 @@ height:300px;
 border-radius:50%;
 filter:blur(80px);
 z-index:-1;
-opacity:0.45;
+opacity:0.5;
 animation: floatGlow 12s ease-in-out infinite;
 }
 .glow.red{
-background:#0066ff;
+background:#9b30ff;
 top:8%;
 left:5%;
 }
 .glow.blue{
-background:#00c3ff;
+background:#c44dff;
 bottom:8%;
 right:5%;
 animation-delay:4s;
@@ -92,7 +92,7 @@ animation-delay:4s;
 50%{ transform:translate(35px,28px) scale(1.2); }
 }
 
-/* ===== EFEK PETIR ===== */
+/* ===== EFEK PETIR LAYAR ===== */
 .lightning{
 position:fixed;
 top:0;
@@ -108,21 +108,21 @@ background:transparent;
 animation: lightningFlash 0.35s ease-out;
 }
 @keyframes lightningFlash{
-0%{ opacity:0; background:rgba(180,220,255,0); }
-10%{ opacity:1; background:rgba(200,230,255,0.35); }
-20%{ opacity:0.3; background:rgba(180,220,255,0.15); }
-30%{ opacity:0.9; background:rgba(220,240,255,0.4); }
-50%{ opacity:0.2; background:rgba(180,220,255,0.1); }
+0%{ opacity:0; background:rgba(220,180,255,0); }
+10%{ opacity:1; background:rgba(230,200,255,0.35); }
+20%{ opacity:0.3; background:rgba(200,160,255,0.15); }
+30%{ opacity:0.9; background:rgba(240,220,255,0.4); }
+50%{ opacity:0.2; background:rgba(200,160,255,0.1); }
 100%{ opacity:0; background:transparent; }
 }
 
-/* Garis petir */
+/* Garis petir besar */
 .bolt{
 position:fixed;
 pointer-events:none;
 z-index:3;
 opacity:0;
-filter:drop-shadow(0 0 8px #a0d8ff) drop-shadow(0 0 20px #4da6ff);
+filter:drop-shadow(0 0 8px #d8a0ff) drop-shadow(0 0 20px #b060ff);
 }
 .bolt.show{
 animation: boltAppear 0.4s ease-out forwards;
@@ -134,18 +134,18 @@ animation: boltAppear 0.4s ease-out forwards;
 100%{ opacity:0; transform:scaleY(1); }
 }
 
-/* ===== SALJU JATUH LEMBUT ===== */
+/* ===== SALJU ===== */
 .snowflake{
 position:fixed;
 top:-20px;
-color:#fff;
+color:#f0e6ff;
 font-size:12px;
 opacity:0.7;
 pointer-events:none;
 z-index:0;
 user-select:none;
 animation: snowfall linear infinite;
-text-shadow:0 0 6px rgba(180,220,255,0.8);
+text-shadow:0 0 6px rgba(200,160,255,0.8);
 }
 @keyframes snowfall{
 0%{
@@ -180,34 +180,65 @@ height:160px;
 object-fit:cover;
 border-radius:20px;
 margin:0 auto 18px;
-border:3px solid rgba(0,160,255,0.4);
+border:3px solid rgba(180,100,255,0.45);
 box-shadow:
-0 0 20px rgba(0,120,255,0.45),
-0 0 40px rgba(0,80,200,0.25);
+0 0 20px rgba(160,60,255,0.5),
+0 0 40px rgba(100,30,180,0.3);
 display:block;
 }
 
-/* Judul */
+/* ===== JUDUL + PETIR DARI TULISAN ===== */
 .welcome{
-color:#e8f4ff;
+color:#f0e6ff;
 font-size:24px;
 font-weight:bold;
 margin-bottom:25px;
 text-shadow:
-0 0 12px rgba(0,160,255,0.7),
-0 0 25px rgba(0,100,255,0.4);
+0 0 12px rgba(180,100,255,0.75),
+0 0 25px rgba(140,50,220,0.45);
 letter-spacing:0.5px;
 line-height:1.35;
+position:relative;
 }
 .welcome span{
 display:block;
 font-size:20px;
 font-weight:800;
 margin-top:6px;
-background:linear-gradient(90deg,#4da6ff,#00d4ff,#7ec8ff);
+background:linear-gradient(90deg,#c44dff,#e080ff,#b060ff);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 background-clip:text;
+position:relative;
+}
+
+/* Petir kecil dari tulisan */
+.text-bolt{
+position:absolute;
+pointer-events:none;
+z-index:6;
+opacity:0;
+filter:drop-shadow(0 0 6px #e0b0ff) drop-shadow(0 0 14px #c070ff);
+}
+.text-bolt.show{
+animation: textBolt 0.45s ease-out forwards;
+}
+@keyframes textBolt{
+0%{ opacity:0; transform:scale(0.4) translateY(0); }
+20%{ opacity:1; transform:scale(1) translateY(0); }
+100%{ opacity:0; transform:scale(1.1) translateY(8px); }
+}
+
+/* Kilat di tulisan */
+.welcome.flash-text{
+animation: textFlash 0.4s ease-out;
+}
+@keyframes textFlash{
+0%{ filter:brightness(1); text-shadow:0 0 12px rgba(180,100,255,0.75); }
+15%{ filter:brightness(1.8); text-shadow:0 0 20px #e0b0ff, 0 0 40px #c070ff, 0 0 60px #a040ff; }
+30%{ filter:brightness(1.2); }
+50%{ filter:brightness(1.6); text-shadow:0 0 25px #f0d0ff, 0 0 50px #d080ff; }
+100%{ filter:brightness(1); text-shadow:0 0 12px rgba(180,100,255,0.75), 0 0 25px rgba(140,50,220,0.45); }
 }
 
 /* Tombol */
@@ -222,39 +253,66 @@ color:white;
 border-radius:16px;
 font-size:16px;
 font-weight:bold;
-background:linear-gradient(135deg,#0066ff,#00a8ff);
+background:linear-gradient(135deg,#7b2fff,#c44dff);
 box-shadow:
-0 0 14px rgba(0,120,255,0.45),
-0 4px 12px rgba(0,60,180,0.3);
+0 0 14px rgba(160,60,255,0.5),
+0 4px 12px rgba(90,20,160,0.35);
 transition: all 0.3s ease;
 position:relative;
 overflow:hidden;
 user-select:none;
 }
-.btn:nth-child(2){ background:linear-gradient(135deg,#0055dd,#0088ee); }
-.btn:nth-child(3){ background:linear-gradient(135deg,#0077ff,#00c3ff); }
-.btn:nth-child(4){ background:linear-gradient(135deg,#0044bb,#0099ff); }
-.btn:nth-child(5){ background:linear-gradient(135deg,#0033aa,#00aaff); }
+.btn:nth-child(2){ background:linear-gradient(135deg,#6a1fd4,#a33dff); }
+.btn:nth-child(3){ background:linear-gradient(135deg,#8b3dff,#d060ff); }
+.btn:nth-child(4){ background:linear-gradient(135deg,#5a15bb,#b040ee); }
+.btn:nth-child(5){ background:linear-gradient(135deg,#4a0faa,#c050ff); }
 
-/* ===== HOVER: TOMBOL MEMBESAR ===== */
+/* ===== TOMBOL MENYALA SAAT PETIR ===== */
+.btn.lightning-glow{
+animation: btnLightning 0.5s ease-out;
+}
+@keyframes btnLightning{
+0%{ 
+filter:brightness(1); 
+box-shadow:0 0 14px rgba(160,60,255,0.5), 0 4px 12px rgba(90,20,160,0.35);
+}
+20%{ 
+filter:brightness(1.7); 
+box-shadow:0 0 30px #e0b0ff, 0 0 50px #c070ff, 0 0 70px #a040ff, 0 4px 20px rgba(200,100,255,0.8);
+transform:scale(1.04);
+}
+40%{ 
+filter:brightness(1.3); 
+}
+60%{ 
+filter:brightness(1.6); 
+box-shadow:0 0 35px #f0d0ff, 0 0 55px #d080ff, 0 0 80px #b050ff;
+}
+100%{ 
+filter:brightness(1); 
+box-shadow:0 0 14px rgba(160,60,255,0.5), 0 4px 12px rgba(90,20,160,0.35);
+transform:scale(1);
+}
+}
+
+/* HOVER */
 .btn:hover{
 transform: scale(1.06);
 box-shadow:
-0 0 22px rgba(0,160,255,0.6),
-0 8px 20px rgba(0,80,200,0.4);
+0 0 22px rgba(200,100,255,0.65),
+0 8px 20px rgba(120,40,200,0.45);
 filter:brightness(1.12);
 }
 .btn:hover .arrow{
 background:rgba(255,255,255,.35);
 transform:scale(1.15);
 }
-
 .btn:active{
 transform: scale(0.96);
 filter:brightness(1.05);
 }
 
-/* ===== RIPPLE EFFECT ===== */
+/* RIPPLE */
 .ripple{
 position:absolute;
 border-radius:50%;
@@ -302,18 +360,18 @@ transform:scale(1.1);
 </style>
 </head>
 <body>
-<!-- LATAR BIRU DARK -->
+<!-- LATAR UNGU TUA -->
 <div class="bg-animation"></div>
 <div class="web"></div>
 <div class="glow red"></div>
 <div class="glow blue"></div>
 
-<!-- Layer petir -->
+<!-- Layer petir layar -->
 <div class="lightning" id="lightning"></div>
 
 <div class="container">
   <img src="https://i.postimg.cc/rpcwK3NN/Chat-GPT-Image-15-Jun-2026-02-00-40.png" alt="Tampan Slot" class="photo">
-  <div class="welcome">
+  <div class="welcome" id="welcomeText">
     Selamat Datang di<br>
     <span>TAMPAN SLOT</span>
   </div>
@@ -336,7 +394,7 @@ transform:scale(1.1);
 </div>
 
 <script>
-// ===== SALJU BANYAK & LEMBUT =====
+// ===== SALJU =====
 function createSnowflakes() {
   const snowCount = 60;
   const symbols = ['❄', '❅', '❆', '•', '·'];
@@ -359,19 +417,75 @@ function createSnowflakes() {
 }
 createSnowflakes();
 
-// ===== EFEK PETIR =====
+// ===== PETIR DARI TULISAN =====
+function createTextBolt() {
+  const welcome = document.getElementById('welcomeText');
+  const rect = welcome.getBoundingClientRect();
+
+  const bolt = document.createElement('div');
+  bolt.classList.add('text-bolt');
+
+  const h = 50 + Math.random() * 40;
+  bolt.innerHTML = `
+    <svg width="24" height="${h}" viewBox="0 0 24 ${h}" fill="none">
+      <path d="M12 0 L7 28 L13 28 L5 ${h} L16 32 L11 32 L18 0 Z" 
+            fill="#f5e8ff" stroke="#e0b0ff" stroke-width="1"/>
+    </svg>
+  `;
+
+  const offsetX = (Math.random() - 0.5) * rect.width * 0.9;
+  const offsetY = Math.random() * 10 - 5;
+
+  bolt.style.left = (rect.left + rect.width / 2 + offsetX) + 'px';
+  bolt.style.top = (rect.top + offsetY) + 'px';
+
+  document.body.appendChild(bolt);
+  requestAnimationFrame(() => bolt.classList.add('show'));
+  setTimeout(() => bolt.remove(), 500);
+}
+
+function flashText() {
+  const welcome = document.getElementById('welcomeText');
+  welcome.classList.remove('flash-text');
+  void welcome.offsetWidth;
+  welcome.classList.add('flash-text');
+
+  const count = 2 + Math.floor(Math.random() * 3);
+  for (let i = 0; i < count; i++) {
+    setTimeout(createTextBolt, i * 60);
+  }
+}
+
+// ===== TOMBOL MENYALA BERGANTIAN ACAK =====
+function flashButtonsRandom() {
+  const buttons = Array.from(document.querySelectorAll('.btn'));
+  // Acak urutan tombol
+  const shuffled = buttons.sort(() => Math.random() - 0.5);
+
+  // Nyalakan 1–3 tombol secara bergantian
+  const howMany = 1 + Math.floor(Math.random() * 3);
+
+  shuffled.slice(0, howMany).forEach((btn, index) => {
+    setTimeout(() => {
+      btn.classList.remove('lightning-glow');
+      void btn.offsetWidth; // reset animasi
+      btn.classList.add('lightning-glow');
+    }, index * 90); // delay bergantian
+  });
+}
+
+// ===== PETIR LAYAR BESAR =====
 function createBolt() {
   const bolt = document.createElement('div');
   bolt.classList.add('bolt');
 
-  // Bentuk petir acak (zigzag sederhana pakai SVG)
   const height = 180 + Math.random() * 220;
-  const startX = 10 + Math.random() * 80; // % dari kiri
+  const startX = 10 + Math.random() * 80;
 
   bolt.innerHTML = `
     <svg width="40" height="${height}" viewBox="0 0 40 ${height}" fill="none">
       <path d="M20 0 L12 70 L22 70 L8 ${height} L28 90 L18 90 L30 0 Z" 
-            fill="#e0f4ff" stroke="#a0d8ff" stroke-width="1.5"/>
+            fill="#f0e0ff" stroke="#d8a0ff" stroke-width="1.5"/>
     </svg>
   `;
 
@@ -379,27 +493,26 @@ function createBolt() {
   bolt.style.top = Math.random() * 15 + 'vh';
   document.body.appendChild(bolt);
 
-  // Tampilkan
   requestAnimationFrame(() => bolt.classList.add('show'));
-
-  // Hapus setelah animasi
   setTimeout(() => bolt.remove(), 500);
 }
 
 function triggerLightning() {
   const lightning = document.getElementById('lightning');
   lightning.classList.remove('flash');
-  void lightning.offsetWidth; // reset animasi
+  void lightning.offsetWidth;
   lightning.classList.add('flash');
 
-  // Kadang muncul 1-2 petir
   createBolt();
   if (Math.random() > 0.5) {
     setTimeout(createBolt, 80 + Math.random() * 120);
   }
+
+  // Tulisan + tombol ikut menyala
+  flashText();
+  flashButtonsRandom();
 }
 
-// Petir muncul acak setiap 4–10 detik
 function scheduleLightning() {
   const delay = 4000 + Math.random() * 6000;
   setTimeout(() => {
@@ -409,7 +522,18 @@ function scheduleLightning() {
 }
 scheduleLightning();
 
-// ===== RIPPLE EFFECT =====
+// Petir tulisan + tombol lebih sering
+function scheduleTextLightning() {
+  const delay = 2500 + Math.random() * 2500;
+  setTimeout(() => {
+    flashText();
+    flashButtonsRandom();
+    scheduleTextLightning();
+  }, delay);
+}
+scheduleTextLightning();
+
+// ===== RIPPLE =====
 document.querySelectorAll('.btn').forEach(btn => {
   btn.addEventListener('click', function(e) {
     const oldRipple = this.querySelector('.ripple');
