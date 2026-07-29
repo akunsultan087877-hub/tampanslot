@@ -204,44 +204,27 @@ background:rgba(255,255,255,.4);
 transform:scale(1.15);
 }
 
-.btn:before{
-content:"";
-position:absolute;
-left:-120%;
-top:0;
-width:60%;
-height:100%;
-background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);
-transform:skewX(-30deg);
-transition:.6s;
-}
-.btn:hover:before{
-left:160%;
-}
 .btn:active{
 transform: scale(0.96);
 filter:brightness(1.05);
 }
-.btn:active:before{
-left:160%;
-}
-.btn:after{
-content:"";
+
+/* ===== RIPPLE EFFECT ===== */
+.ripple{
 position:absolute;
-width:0;
-height:0;
 border-radius:50%;
-background:rgba(255,255,255,0.3);
-transform:translate(-50%,-50%);
-transition: width 0.4s ease, height 0.4s ease;
-top:50%;
-left:50%;
+background:rgba(255,255,255,0.45);
+transform:scale(0);
+animation:ripple-animation 0.6s linear;
 pointer-events:none;
 }
-.btn:active:after{
-width:300px;
-height:300px;
+@keyframes ripple-animation{
+to{
+transform:scale(4);
+opacity:0;
 }
+}
+
 .arrow{
 width:40px;
 height:40px;
@@ -315,5 +298,35 @@ transform:scale(1.1);
     <span class="arrow">➜</span>
   </a>
 </div>
+
+<script>
+// Efek Ripple saat tombol diklik
+document.querySelectorAll('.btn').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    // Hapus ripple lama jika ada
+    const oldRipple = this.querySelector('.ripple');
+    if (oldRipple) oldRipple.remove();
+
+    const ripple = document.createElement('span');
+    ripple.classList.add('ripple');
+
+    const rect = this.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    const x = e.clientX - rect.left - size / 2;
+    const y = e.clientY - rect.top - size / 2;
+
+    ripple.style.width = ripple.style.height = size + 'px';
+    ripple.style.left = x + 'px';
+    ripple.style.top = y + 'px';
+
+    this.appendChild(ripple);
+
+    // Hapus setelah animasi selesai
+    setTimeout(() => {
+      ripple.remove();
+    }, 600);
+  });
+});
+</script>
 </body>
 </html>
