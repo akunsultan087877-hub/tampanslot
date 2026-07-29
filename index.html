@@ -153,33 +153,33 @@ opacity:0;
 background:transparent;
 }
 .lightning.flash{
-animation: lightningFlash 0.35s ease-out;
+animation: lightningFlash 0.4s ease-out;
 }
 @keyframes lightningFlash{
 0%{ opacity:0; background:rgba(220,180,255,0); }
-10%{ opacity:1; background:rgba(230,200,255,0.35); }
-20%{ opacity:0.3; background:rgba(200,160,255,0.15); }
-30%{ opacity:0.9; background:rgba(240,220,255,0.4); }
-50%{ opacity:0.2; background:rgba(200,160,255,0.1); }
+8%{ opacity:1; background:rgba(240,220,255,0.45); }
+18%{ opacity:0.2; background:rgba(200,160,255,0.12); }
+28%{ opacity:0.95; background:rgba(255,240,255,0.5); }
+45%{ opacity:0.15; background:rgba(200,160,255,0.08); }
 100%{ opacity:0; background:transparent; }
 }
 
-/* Garis petir besar */
+/* Garis petir panjang & realistis */
 .bolt{
 position:fixed;
 pointer-events:none;
 z-index:3;
 opacity:0;
-filter:drop-shadow(0 0 8px #d8a0ff) drop-shadow(0 0 20px #b060ff);
+filter:drop-shadow(0 0 6px #e8c0ff) drop-shadow(0 0 18px #c070ff) drop-shadow(0 0 35px #a040ff);
 }
 .bolt.show{
-animation: boltAppear 0.4s ease-out forwards;
+animation: boltAppear 0.45s ease-out forwards;
 }
 @keyframes boltAppear{
-0%{ opacity:0; transform:scaleY(0.3); }
-15%{ opacity:1; transform:scaleY(1); }
-70%{ opacity:0.9; }
-100%{ opacity:0; transform:scaleY(1); }
+0%{ opacity:0; }
+12%{ opacity:1; }
+75%{ opacity:0.85; }
+100%{ opacity:0; }
 }
 
 /* ===== SALJU ===== */
@@ -219,13 +219,31 @@ padding:10px 5px;
 text-align:center;
 position:relative;
 z-index:5;
-opacity:0;
-transform:translateY(20px);
-transition: opacity 0.8s ease, transform 0.8s ease;
 }
-.container.show{
+
+/* ===== ANIMASI MASUK DARI ARAH ACAK ===== */
+.enter-item{
+opacity:0;
+transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.enter-item.from-left{
+transform: translateX(-80px) scale(0.9);
+}
+.enter-item.from-right{
+transform: translateX(80px) scale(0.9);
+}
+.enter-item.from-top{
+transform: translateY(-60px) scale(0.9);
+}
+.enter-item.from-bottom{
+transform: translateY(60px) scale(0.9);
+}
+.enter-item.from-scale{
+transform: scale(0.5);
+}
+.enter-item.show{
 opacity:1;
-transform:translateY(0);
+transform: translate(0,0) scale(1);
 }
 
 /* Foto */
@@ -267,21 +285,22 @@ background-clip:text;
 position:relative;
 }
 
-/* Petir kecil dari tulisan */
+/* Petir realistis dari tulisan */
 .text-bolt{
 position:absolute;
 pointer-events:none;
 z-index:6;
 opacity:0;
-filter:drop-shadow(0 0 6px #e0b0ff) drop-shadow(0 0 14px #c070ff);
+filter:drop-shadow(0 0 5px #e8c0ff) drop-shadow(0 0 12px #c070ff) drop-shadow(0 0 22px #a040ff);
 }
 .text-bolt.show{
-animation: textBolt 0.45s ease-out forwards;
+animation: textBolt 0.5s ease-out forwards;
 }
 @keyframes textBolt{
-0%{ opacity:0; transform:scale(0.4) translateY(0); }
-20%{ opacity:1; transform:scale(1) translateY(0); }
-100%{ opacity:0; transform:scale(1.1) translateY(8px); }
+0%{ opacity:0; }
+15%{ opacity:1; }
+70%{ opacity:0.9; }
+100%{ opacity:0; }
 }
 
 /* Kilat di tulisan */
@@ -312,7 +331,7 @@ background:linear-gradient(135deg,#7b2fff,#c44dff);
 box-shadow:
 0 0 14px rgba(160,60,255,0.5),
 0 4px 12px rgba(90,20,160,0.35);
-transition: all 0.3s ease;
+transition: all 0.3s ease, opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 position:relative;
 overflow:hidden;
 user-select:none;
@@ -435,26 +454,26 @@ transform:scale(1.1);
 
 <!-- ===== HALAMAN UTAMA ===== -->
 <div class="container" id="mainPage">
-  <img src="https://i.postimg.cc/rpcwK3NN/Chat-GPT-Image-15-Jun-2026-02-00-40.png" alt="Tampan Slot" class="photo">
+  <img src="https://i.postimg.cc/rpcwK3NN/Chat-GPT-Image-15-Jun-2026-02-00-40.png" alt="Tampan Slot" class="photo enter-item">
   
-  <div class="welcome" id="welcomeText">
+  <div class="welcome enter-item" id="welcomeText">
     Selamat Datang di<br>
     <span>TAMPAN SLOT</span>
   </div>
 
-  <a class="btn" href="https://tampanslot1.lat/daftar?ref=gantengkali2">
+  <a class="btn enter-item" href="https://tampanslot1.lat/daftar?ref=gantengkali2">
     LOGIN
     <span class="arrow">➜</span>
   </a>
-  <a class="btn" href="https://tampanslot1.lat/daftar?ref=gantengkali2">
+  <a class="btn enter-item" href="https://tampanslot1.lat/daftar?ref=gantengkali2">
     LINK UTAMA
     <span class="arrow">➜</span>
   </a>
-  <a class="btn" href="https://tampanslot1.lat/daftar?ref=gantengkali2">
+  <a class="btn enter-item" href="https://tampanslot1.lat/daftar?ref=gantengkali2">
     LINK GACOR
     <span class="arrow">➜</span>
   </a>
-  <a class="btn" href="https://tampanslot1.lat/daftar?ref=gantengkali2">
+  <a class="btn enter-item" href="https://tampanslot1.lat/daftar?ref=gantengkali2">
     BONUS TERBARU
     <span class="arrow">➜</span>
   </a>
@@ -464,8 +483,23 @@ transform:scale(1.1);
 // ===== SPLASH 5 DETIK LALU MASUK HALAMAN UTAMA =====
 setTimeout(() => {
   document.getElementById('splash').classList.add('hide');
-  document.getElementById('mainPage').classList.add('show');
+  animateEnterItems();
 }, 5000);
+
+// ===== ANIMASI MASUK DARI ARAH ACAK =====
+function animateEnterItems() {
+  const items = document.querySelectorAll('.enter-item');
+  const directions = ['from-left', 'from-right', 'from-top', 'from-bottom', 'from-scale'];
+
+  items.forEach((item, index) => {
+    const dir = directions[Math.floor(Math.random() * directions.length)];
+    item.classList.add(dir);
+
+    setTimeout(() => {
+      item.classList.add('show');
+    }, 150 + index * 120);
+  });
+}
 
 // ===== SALJU =====
 function createSnowflakes() {
@@ -490,7 +524,24 @@ function createSnowflakes() {
 }
 createSnowflakes();
 
-// ===== PETIR DARI TULISAN =====
+// ===== FUNGSI PEMBUAT JALUR PETIR REALISTIS =====
+function generateLightningPath(height, width = 40) {
+  let path = `M ${width/2} 0`;
+  let x = width / 2;
+  let y = 0;
+  const segments = 10 + Math.floor(Math.random() * 8);
+  const stepY = height / segments;
+
+  for (let i = 0; i < segments; i++) {
+    const offsetX = (Math.random() - 0.5) * (width * 0.85);
+    x = Math.max(3, Math.min(width - 3, x + offsetX));
+    y += stepY * (0.65 + Math.random() * 0.7);
+    path += ` L ${x.toFixed(1)} ${y.toFixed(1)}`;
+  }
+  return path;
+}
+
+// ===== PETIR REALISTIS DARI TULISAN =====
 function createTextBolt() {
   const welcome = document.getElementById('welcomeText');
   if (!welcome) return;
@@ -499,23 +550,45 @@ function createTextBolt() {
   const bolt = document.createElement('div');
   bolt.classList.add('text-bolt');
 
-  const h = 50 + Math.random() * 40;
+  const height = 90 + Math.random() * 110; // petir lebih panjang
+  const width = 36;
+  const pathMain = generateLightningPath(height, width);
+  const pathBranch = generateLightningPath(height * 0.4, width * 0.7);
+
   bolt.innerHTML = `
-    <svg width="24" height="${h}" viewBox="0 0 24 ${h}" fill="none">
-      <path d="M12 0 L7 28 L13 28 L5 ${h} L16 32 L11 32 L18 0 Z" 
-            fill="#f5e8ff" stroke="#e0b0ff" stroke-width="1"/>
+    <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" style="overflow:visible">
+      <path d="${pathMain}" 
+            stroke="#f8f0ff" 
+            stroke-width="2.2" 
+            stroke-linecap="round" 
+            stroke-linejoin="round"
+            fill="none"/>
+      <path d="${pathMain}" 
+            stroke="#d8a0ff" 
+            stroke-width="1" 
+            stroke-linecap="round" 
+            fill="none"
+            opacity="0.9"/>
+      <path d="${pathBranch}" 
+            stroke="#e8c8ff" 
+            stroke-width="1.3" 
+            stroke-linecap="round" 
+            fill="none"
+            opacity="0.75"
+            transform="translate(6, ${height * 0.2})"/>
     </svg>
   `;
 
-  const offsetX = (Math.random() - 0.5) * rect.width * 0.9;
-  const offsetY = Math.random() * 10 - 5;
+  // Posisi acak di sekitar tulisan
+  const offsetX = (Math.random() - 0.5) * rect.width * 1.1;
+  const offsetY = -10 + Math.random() * 15;
 
-  bolt.style.left = (rect.left + rect.width / 2 + offsetX) + 'px';
+  bolt.style.left = (rect.left + rect.width / 2 + offsetX - width / 2) + 'px';
   bolt.style.top = (rect.top + offsetY) + 'px';
 
   document.body.appendChild(bolt);
   requestAnimationFrame(() => bolt.classList.add('show'));
-  setTimeout(() => bolt.remove(), 500);
+  setTimeout(() => bolt.remove(), 550);
 }
 
 function flashText() {
@@ -525,15 +598,17 @@ function flashText() {
   void welcome.offsetWidth;
   welcome.classList.add('flash-text');
 
+  // 2–4 petir realistis keluar dari tulisan
   const count = 2 + Math.floor(Math.random() * 3);
   for (let i = 0; i < count; i++) {
-    setTimeout(createTextBolt, i * 60);
+    setTimeout(createTextBolt, i * 70);
   }
 }
 
 // ===== TOMBOL MENYALA BERGANTIAN ACAK =====
 function flashButtonsRandom() {
   const buttons = Array.from(document.querySelectorAll('.btn'));
+  if (!buttons.length) return;
   const shuffled = buttons.sort(() => Math.random() - 0.5);
   const howMany = 1 + Math.floor(Math.random() * 3);
 
@@ -546,23 +621,42 @@ function flashButtonsRandom() {
   });
 }
 
-// ===== PETIR LAYAR BESAR =====
+// ===== PETIR LAYAR PANJANG & REALISTIS =====
 function createBolt() {
   const bolt = document.createElement('div');
   bolt.classList.add('bolt');
 
-  const height = 180 + Math.random() * 220;
-  const startX = 10 + Math.random() * 80;
+  const height = 320 + Math.random() * 280;
+  const startX = 5 + Math.random() * 90;
+  const pathMain = generateLightningPath(height, 60);
+  const pathBranch = generateLightningPath(height * 0.45, 40);
 
   bolt.innerHTML = `
-    <svg width="40" height="${height}" viewBox="0 0 40 ${height}" fill="none">
-      <path d="M20 0 L12 70 L22 70 L8 ${height} L28 90 L18 90 L30 0 Z" 
-            fill="#f0e0ff" stroke="#d8a0ff" stroke-width="1.5"/>
+    <svg width="60" height="${height}" viewBox="0 0 60 ${height}" fill="none" style="overflow:visible">
+      <path d="${pathMain}" 
+            stroke="#f8f0ff" 
+            stroke-width="2.8" 
+            stroke-linecap="round" 
+            stroke-linejoin="round"
+            fill="none"/>
+      <path d="${pathMain}" 
+            stroke="#d8a0ff" 
+            stroke-width="1.2" 
+            stroke-linecap="round" 
+            fill="none"
+            opacity="0.9"/>
+      <path d="${pathBranch}" 
+            stroke="#e8c8ff" 
+            stroke-width="1.6" 
+            stroke-linecap="round" 
+            fill="none"
+            opacity="0.7"
+            transform="translate(8, ${height * 0.25})"/>
     </svg>
   `;
 
   bolt.style.left = startX + 'vw';
-  bolt.style.top = Math.random() * 15 + 'vh';
+  bolt.style.top = (Math.random() * 8 - 2) + 'vh';
   document.body.appendChild(bolt);
 
   requestAnimationFrame(() => bolt.classList.add('show'));
@@ -575,33 +669,40 @@ function triggerLightning() {
   void lightning.offsetWidth;
   lightning.classList.add('flash');
 
-  createBolt();
-  if (Math.random() > 0.5) {
-    setTimeout(createBolt, 80 + Math.random() * 120);
+  const count = 1 + Math.floor(Math.random() * 3);
+  for (let i = 0; i < count; i++) {
+    setTimeout(createBolt, i * 60);
   }
 
-  flashText();
-  flashButtonsRandom();
+  if (document.getElementById('splash').classList.contains('hide')) {
+    flashText();
+    flashButtonsRandom();
+  }
 }
 
 function scheduleLightning() {
-  const delay = 4000 + Math.random() * 6000;
+  const delay = 2800 + Math.random() * 4500;
   setTimeout(() => {
     triggerLightning();
     scheduleLightning();
   }, delay);
 }
-setTimeout(scheduleLightning, 5500);
+
+// ===== PETIR LANGSUNG MULAI =====
+triggerLightning();
+scheduleLightning();
 
 function scheduleTextLightning() {
   const delay = 2500 + Math.random() * 2500;
   setTimeout(() => {
-    flashText();
-    flashButtonsRandom();
+    if (document.getElementById('splash').classList.contains('hide')) {
+      flashText();
+      flashButtonsRandom();
+    }
     scheduleTextLightning();
   }, delay);
 }
-setTimeout(scheduleTextLightning, 5500);
+setTimeout(scheduleTextLightning, 5200);
 
 // ===== RIPPLE =====
 document.querySelectorAll('.btn').forEach(btn => {
