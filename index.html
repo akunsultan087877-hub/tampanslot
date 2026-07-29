@@ -19,12 +19,12 @@ align-items:center;
 min-height:100vh;
 min-height:100dvh;
 overflow:hidden;
-background:#fff8e7;
+background:#050d1f;
 padding:15px;
 position:relative;
 }
 
-/* ===== LATAR GEMBIRA ===== */
+/* ===== LATAR BIRU DARK ===== */
 .bg-animation{
 position:fixed;
 top:0;
@@ -33,19 +33,19 @@ width:100%;
 height:100%;
 z-index:-3;
 background:
-radial-gradient(circle at 20% 30%, rgba(255,182,193,0.55) 0%, transparent 45%),
-radial-gradient(circle at 80% 20%, rgba(255,223,100,0.5) 0%, transparent 40%),
-radial-gradient(circle at 70% 80%, rgba(173,216,230,0.55) 0%, transparent 45%),
-radial-gradient(circle at 30% 70%, rgba(144,238,144,0.45) 0%, transparent 40%),
-#fff8e7;
-animation: bgPulse 7s ease-in-out infinite alternate;
+radial-gradient(circle at 20% 30%, rgba(0,80,200,0.35) 0%, transparent 45%),
+radial-gradient(circle at 80% 20%, rgba(0,140,255,0.25) 0%, transparent 40%),
+radial-gradient(circle at 70% 80%, rgba(0,60,180,0.3) 0%, transparent 45%),
+radial-gradient(circle at 30% 70%, rgba(0,100,220,0.2) 0%, transparent 40%),
+#050d1f;
+animation: bgPulse 8s ease-in-out infinite alternate;
 }
 @keyframes bgPulse{
 0%{ filter:hue-rotate(0deg) brightness(1); }
-100%{ filter:hue-rotate(12deg) brightness(1.08); }
+100%{ filter:hue-rotate(10deg) brightness(1.12); }
 }
 
-/* Pola confetti lembut */
+/* Grid / web biru */
 .web{
 position:fixed;
 top:0;
@@ -54,64 +54,72 @@ width:100%;
 height:100%;
 z-index:-2;
 background-image:
-radial-gradient(circle, rgba(255,105,180,0.15) 2px, transparent 2px),
-radial-gradient(circle, rgba(255,215,0,0.15) 2px, transparent 2px),
-radial-gradient(circle, rgba(100,200,255,0.15) 2px, transparent 2px);
-background-size:50px 50px, 70px 70px, 40px 40px;
-background-position:0 0, 25px 25px, 10px 40px;
-animation: webMove 18s linear infinite;
+linear-gradient(rgba(0,140,255,0.06) 1px, transparent 1px),
+linear-gradient(90deg, rgba(0,140,255,0.06) 1px, transparent 1px);
+background-size:55px 55px;
+animation: webMove 20s linear infinite;
 opacity:0.7;
 }
 @keyframes webMove{
-0%{ background-position:0 0, 25px 25px, 10px 40px; }
-100%{ background-position:50px 50px, 75px 75px, 50px 80px; }
+0%{ background-position:0 0; }
+100%{ background-position:55px 55px; }
 }
 
-/* Cahaya cerah bergerak */
+/* Cahaya biru bergerak */
 .glow{
 position:fixed;
-width:280px;
-height:280px;
+width:300px;
+height:300px;
 border-radius:50%;
-filter:blur(70px);
+filter:blur(80px);
 z-index:-1;
-opacity:0.55;
-animation: floatGlow 10s ease-in-out infinite;
+opacity:0.45;
+animation: floatGlow 12s ease-in-out infinite;
 }
 .glow.red{
-background:#ff9ec4;
+background:#0066ff;
 top:8%;
 left:5%;
 }
 .glow.blue{
-background:#7ec8ff;
+background:#00c3ff;
 bottom:8%;
 right:5%;
-animation-delay:3s;
+animation-delay:4s;
 }
 @keyframes floatGlow{
 0%,100%{ transform:translate(0,0) scale(1); }
-50%{ transform:translate(30px,25px) scale(1.15); }
+50%{ transform:translate(35px,28px) scale(1.2); }
 }
 
-/* Partikel confetti */
-.particle{
+/* ===== SALJU JATUH LEMBUT ===== */
+.snowflake{
 position:fixed;
-width:8px;
-height:8px;
-border-radius:2px;
+top:-20px;
+color:#fff;
+font-size:12px;
 opacity:0.7;
-animation:float 11s linear infinite;
+pointer-events:none;
 z-index:0;
+user-select:none;
+animation: snowfall linear infinite;
+text-shadow:0 0 6px rgba(180,220,255,0.8);
 }
-.particle:nth-child(odd){ background:#ff6b9d; transform:rotate(20deg); }
-.particle:nth-child(even){ background:#ffd93d; border-radius:50%; }
-.particle:nth-child(3n){ background:#6bcbff; }
-.particle:nth-child(4n){ background:#95e1a3; }
-@keyframes float{
-0%{ transform:translateY(110vh) rotate(0deg); opacity:0; }
-15%{ opacity:0.8; }
-100%{ transform:translateY(-20vh) rotate(360deg); opacity:0; }
+@keyframes snowfall{
+0%{
+transform:translateY(0) translateX(0) rotate(0deg);
+opacity:0;
+}
+10%{
+opacity:0.8;
+}
+90%{
+opacity:0.6;
+}
+100%{
+transform:translateY(110vh) translateX(30px) rotate(360deg);
+opacity:0;
+}
 }
 
 .container{
@@ -128,24 +136,24 @@ z-index:1;
 width:160px;
 height:160px;
 object-fit:cover;
-border-radius:22px;
+border-radius:20px;
 margin:0 auto 18px;
-border:4px solid #fff;
+border:3px solid rgba(0,160,255,0.4);
 box-shadow:
-0 8px 25px rgba(255,105,180,0.35),
-0 4px 12px rgba(255,200,50,0.3);
+0 0 20px rgba(0,120,255,0.45),
+0 0 40px rgba(0,80,200,0.25);
 display:block;
 }
 
 /* Judul */
 .welcome{
-color:#2d2d2d;
+color:#e8f4ff;
 font-size:24px;
 font-weight:bold;
 margin-bottom:25px;
 text-shadow:
-0 2px 0 #fff,
-0 0 15px rgba(255,182,193,0.6);
+0 0 12px rgba(0,160,255,0.7),
+0 0 25px rgba(0,100,255,0.4);
 letter-spacing:0.5px;
 line-height:1.35;
 }
@@ -154,7 +162,7 @@ display:block;
 font-size:20px;
 font-weight:800;
 margin-top:6px;
-background:linear-gradient(90deg,#ff6b9d,#ff9f43,#6bcbff,#95e1a3);
+background:linear-gradient(90deg,#4da6ff,#00d4ff,#7ec8ff);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 background-clip:text;
@@ -169,38 +177,33 @@ padding:16px 18px;
 margin:14px 0;
 text-decoration:none;
 color:white;
-border-radius:18px;
+border-radius:16px;
 font-size:16px;
 font-weight:bold;
-background:linear-gradient(135deg,#ff6b9d,#ff9f43);
+background:linear-gradient(135deg,#0066ff,#00a8ff);
 box-shadow:
-0 6px 18px rgba(255,107,157,0.4),
-0 3px 8px rgba(255,159,67,0.3);
+0 0 14px rgba(0,120,255,0.45),
+0 4px 12px rgba(0,60,180,0.3);
 transition: all 0.3s ease;
 position:relative;
 overflow:hidden;
 user-select:none;
 }
-.btn:nth-child(2){ background:linear-gradient(135deg,#6bcbff,#4ecdc4); box-shadow:0 6px 18px rgba(107,203,255,0.4); }
-.btn:nth-child(3){ background:linear-gradient(135deg,#95e1a3,#4ecdc4); box-shadow:0 6px 18px rgba(149,225,163,0.4); }
-.btn:nth-child(4){ background:linear-gradient(135deg,#ff9f43,#ff6b9d); box-shadow:0 6px 18px rgba(255,159,67,0.4); }
-.btn:nth-child(5){ background:linear-gradient(135deg,#c77dff,#ff6b9d); box-shadow:0 6px 18px rgba(199,125,255,0.4); }
+.btn:nth-child(2){ background:linear-gradient(135deg,#0055dd,#0088ee); }
+.btn:nth-child(3){ background:linear-gradient(135deg,#0077ff,#00c3ff); }
+.btn:nth-child(4){ background:linear-gradient(135deg,#0044bb,#0099ff); }
+.btn:nth-child(5){ background:linear-gradient(135deg,#0033aa,#00aaff); }
 
 /* ===== HOVER: TOMBOL MEMBESAR ===== */
 .btn:hover{
 transform: scale(1.06);
 box-shadow:
-0 10px 28px rgba(0,0,0,0.18),
-0 6px 16px rgba(255,107,157,0.45);
-filter:brightness(1.08);
+0 0 22px rgba(0,160,255,0.6),
+0 8px 20px rgba(0,80,200,0.4);
+filter:brightness(1.12);
 }
-.btn:nth-child(2):hover{ box-shadow:0 10px 28px rgba(0,0,0,0.18), 0 6px 16px rgba(107,203,255,0.5); }
-.btn:nth-child(3):hover{ box-shadow:0 10px 28px rgba(0,0,0,0.18), 0 6px 16px rgba(149,225,163,0.5); }
-.btn:nth-child(4):hover{ box-shadow:0 10px 28px rgba(0,0,0,0.18), 0 6px 16px rgba(255,159,67,0.5); }
-.btn:nth-child(5):hover{ box-shadow:0 10px 28px rgba(0,0,0,0.18), 0 6px 16px rgba(199,125,255,0.5); }
-
 .btn:hover .arrow{
-background:rgba(255,255,255,.4);
+background:rgba(255,255,255,.35);
 transform:scale(1.15);
 }
 
@@ -213,7 +216,7 @@ filter:brightness(1.05);
 .ripple{
 position:absolute;
 border-radius:50%;
-background:rgba(255,255,255,0.45);
+background:rgba(255,255,255,0.4);
 transform:scale(0);
 animation:ripple-animation 0.6s linear;
 pointer-events:none;
@@ -232,13 +235,13 @@ display:flex;
 justify-content:center;
 align-items:center;
 border-radius:50%;
-background:rgba(255,255,255,.25);
+background:rgba(255,255,255,.18);
 font-size:20px;
 flex-shrink:0;
 transition:0.3s;
 }
 .btn:active .arrow{
-background:rgba(255,255,255,.4);
+background:rgba(255,255,255,.3);
 transform:scale(1.1);
 }
 
@@ -257,23 +260,11 @@ transform:scale(1.1);
 </style>
 </head>
 <body>
-<!-- LATAR GEMBIRA -->
+<!-- LATAR BIRU DARK -->
 <div class="bg-animation"></div>
 <div class="web"></div>
 <div class="glow red"></div>
 <div class="glow blue"></div>
-
-<!-- Partikel confetti -->
-<div class="particle" style="left:5%;animation-delay:0s"></div>
-<div class="particle" style="left:15%;animation-delay:2s"></div>
-<div class="particle" style="left:25%;animation-delay:4s"></div>
-<div class="particle" style="left:35%;animation-delay:1s"></div>
-<div class="particle" style="left:45%;animation-delay:5s"></div>
-<div class="particle" style="left:55%;animation-delay:3s"></div>
-<div class="particle" style="left:65%;animation-delay:6s"></div>
-<div class="particle" style="left:75%;animation-delay:2s"></div>
-<div class="particle" style="left:85%;animation-delay:4s"></div>
-<div class="particle" style="left:95%;animation-delay:1s"></div>
 
 <div class="container">
   <img src="https://i.postimg.cc/rpcwK3NN/Chat-GPT-Image-15-Jun-2026-02-00-40.png" alt="Tampan Slot" class="photo">
@@ -300,10 +291,67 @@ transform:scale(1.1);
 </div>
 
 <script>
-// Efek Ripple saat tombol diklik
+// ===== SALJU BANYAK & LEMBUT =====
+function createSnowflakes() {
+  const snowCount = 60; // banyak salju
+  const symbols = ['❄', '❅', '❆', '•', '·'];
+
+  for (let i = 0; i < snowCount; i++) {
+    const flake = document.createElement('div');
+    flake.classList.add('snowflake');
+    flake.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+
+    // Posisi horizontal acak
+    flake.style.left = Math.random() * 100 + 'vw';
+
+    // Ukuran acak (kecil - sedang)
+    const size = Math.random() * 14 + 8;
+    flake.style.fontSize = size + 'px';
+
+    // Opacity lembut
+    flake.style.opacity = Math.random() * 0.5 + 0.3;
+
+    // Durasi jatuh (lambat & lembut)
+    const duration = Math.random() * 12 + 10; // 10-22 detik
+    flake.style.animationDuration = duration + 's';
+
+    // Delay acak supaya tidak bareng
+    flake.style.animationDelay = Math.random() * 15 + 's';
+
+    // Goyangan horizontal sedikit berbeda
+    const drift = (Math.random() * 60 - 30) + 'px';
+    flake.style.setProperty('--drift', drift);
+
+    document.body.appendChild(flake);
+  }
+}
+
+// Update animasi supaya ada goyangan
+const style = document.createElement('style');
+style.innerHTML = `
+@keyframes snowfall{
+0%{
+transform:translateY(-10vh) translateX(0) rotate(0deg);
+opacity:0;
+}
+10%{
+opacity:0.75;
+}
+90%{
+opacity:0.5;
+}
+100%{
+transform:translateY(110vh) translateX(var(--drift, 20px)) rotate(360deg);
+opacity:0;
+}
+}`;
+document.head.appendChild(style);
+
+createSnowflakes();
+
+// ===== RIPPLE EFFECT =====
 document.querySelectorAll('.btn').forEach(btn => {
   btn.addEventListener('click', function(e) {
-    // Hapus ripple lama jika ada
     const oldRipple = this.querySelector('.ripple');
     if (oldRipple) oldRipple.remove();
 
@@ -321,7 +369,6 @@ document.querySelectorAll('.btn').forEach(btn => {
 
     this.appendChild(ripple);
 
-    // Hapus setelah animasi selesai
     setTimeout(() => {
       ripple.remove();
     }, 600);
