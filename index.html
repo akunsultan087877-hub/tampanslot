@@ -1,172 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Landing</title>
+
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 body{
-font-family:'Poppins',sans-serif;
-background:
-radial-gradient(circle at top,#2b2b2b 0%,#111 40%,#000 100%);
 display:flex;
 justify-content:center;
 align-items:center;
 min-height:100vh;
-padding:25px;
-overflow-x:hidden;
-position:relative;
+overflow:hidden;
+background:#050816;
 }
 
-/* Efek jaring */
+/* Background Animasi */
+
 body::before{
 content:"";
 position:fixed;
-inset:0;
-background-image:
-linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
-linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
-background-size:45px 45px;
-opacity:.25;
-pointer-events:none;
+width:220%;
+height:220%;
+background:
+radial-gradient(circle,#ff000055 0%,transparent 35%),
+radial-gradient(circle,#0066ff55 0%,transparent 35%),
+radial-gradient(circle,#00ffff33 0%,transparent 30%);
+background-size:30% 30%;
+animation:movebg 18s linear infinite;
+z-index:-2;
+filter:blur(25px);
 }
 
-.menu{
-width:100%;
-max-width:430px;
-background:rgba(15,15,15,.9);
-border:2px solid #c40018;
-border-radius:28px;
-padding:20px;
-box-shadow:
-0 0 20px rgba(255,0,0,.4),
-0 0 60px rgba(0,80,255,.25);
+@keyframes movebg{
+
+0%{
+transform:rotate(0deg) scale(1);
 }
 
-/* Banner */
-
-.logo{
-overflow:hidden;
-border-radius:18px;
-margin-bottom:22px;
-border:3px solid #d6001c;
-box-shadow:0 0 25px rgba(255,0,0,.45);
+100%{
+transform:rotate(360deg) scale(1.2);
 }
 
-.logo img{
-width:100%;
-display:block;
-transition:.5s;
 }
 
-.logo:hover img{
-transform:scale(1.05);
+/* Partikel */
+
+.particle{
+position:fixed;
+width:5px;
+height:5px;
+background:white;
+border-radius:50%;
+opacity:.5;
+animation:float 12s linear infinite;
+z-index:-1;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(110vh);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+
+}
+
+.container{
+
+width:420px;
+max-width:95%;
+padding:25px;
+
 }
 
 /* Tombol */
 
 .btn{
-position:relative;
+
 display:flex;
 justify-content:space-between;
 align-items:center;
-text-decoration:none;
 padding:18px 22px;
-margin:15px 0;
-border-radius:16px;
+margin:18px 0;
+
+text-decoration:none;
+color:white;
+
+border-radius:18px;
+
 font-size:18px;
-font-weight:700;
-color:#fff;
-overflow:hidden;
+font-weight:bold;
+
+background:linear-gradient(135deg,#ff003c,#0048ff);
+
+box-shadow:
+0 0 15px rgba(255,0,60,.5),
+0 0 30px rgba(0,72,255,.35);
+
 transition:.35s;
-border:1px solid rgba(255,255,255,.12);
+
+position:relative;
+overflow:hidden;
+
 }
 
-.btn::before{
+.btn:before{
+
 content:"";
 position:absolute;
 left:-120%;
 top:0;
-width:70%;
+
+width:60%;
 height:100%;
-background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);
-transform:skewX(-25deg);
+
+background:
+linear-gradient(90deg,
+transparent,
+rgba(255,255,255,.6),
+transparent);
+
+transform:skewX(-30deg);
+
 transition:.8s;
+
 }
 
-.btn:hover::before{
-left:150%;
+.btn:hover:before{
+
+left:160%;
+
 }
 
 .btn:hover{
-transform:translateY(-4px) scale(1.02);
+
+transform:translateY(-5px) scale(1.03);
+
+box-shadow:
+0 0 25px red,
+0 0 45px blue;
+
 }
 
-.icon{
+.arrow{
+
 width:45px;
 height:45px;
-border-radius:50%;
+
 display:flex;
 justify-content:center;
 align-items:center;
-background:rgba(255,255,255,.15);
-font-size:20px;
-transition:.3s;
-}
 
-.btn:hover .icon{
-transform:rotate(-15deg);
-background:#fff;
-color:#d4001d;
-}
+border-radius:50%;
 
-/* Warna Spider */
+background:rgba(255,255,255,.18);
 
-.blue{
-background:linear-gradient(135deg,#0046c7,#001f6d);
-box-shadow:0 0 18px rgba(0,102,255,.45);
-}
-
-.purple{
-background:linear-gradient(135deg,#d00020,#6b0012);
-box-shadow:0 0 18px rgba(255,0,43,.45);
-}
-
-.red{
-background:linear-gradient(135deg,#ff1f3d,#8b0000);
-box-shadow:0 0 18px rgba(255,0,0,.45);
-}
-
-.green{
-background:linear-gradient(135deg,#0b5cff,#001c60);
-box-shadow:0 0 18px rgba(0,119,255,.45);
-}
-
-.footer{
-margin-top:18px;
-text-align:center;
-font-size:13px;
-font-weight:600;
-color:#ffffff;
-letter-spacing:2px;
-text-shadow:0 0 10px red;
-}
-
-@media(max-width:480px){
-
-.menu{
-padding:16px;
-}
-
-.btn{
-font-size:16px;
-padding:16px 18px;
-}
-
-.icon{
-width:40px;
-height:40px;
-}
+font-size:22px;
 
 }
+
 </style>
+</head>
+
+<body>
+
+<div class="particle" style="left:5%;animation-delay:0s"></div>
+<div class="particle" style="left:15%;animation-delay:2s"></div>
+<div class="particle" style="left:25%;animation-delay:4s"></div>
+<div class="particle" style="left:35%;animation-delay:1s"></div>
+<div class="particle" style="left:45%;animation-delay:5s"></div>
+<div class="particle" style="left:55%;animation-delay:3s"></div>
+<div class="particle" style="left:65%;animation-delay:6s"></div>
+<div class="particle" style="left:75%;animation-delay:2s"></div>
+<div class="particle" style="left:85%;animation-delay:4s"></div>
+<div class="particle" style="left:95%;animation-delay:1s"></div>
+
+<div class="container">
+
+<a class="btn" href="#">
+LOGIN
+<span class="arrow">➜</span>
+</a>
+
+<a class="btn" href="#">
+LINK UTAMA
+<span class="arrow">➜</span>
+</a>
+
+<a class="btn" href="#">
+LINK GACOR
+<span class="arrow">➜</span>
+</a>
+
+<a class="btn" href="#">
+BONUS TERBARU
+<span class="arrow">➜</span>
+</a>
+
+</div>
+
+</body>
+</html>
