@@ -1,969 +1,734 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>techgear - G502 HERO WIRELESS</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>
-    /* ===== Reset & Base ===== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --bg-dark: #0d0d0f;
-      --bg-card: #1a1a1e;
-      --bg-card-hover: #222228;
-      --accent: #00a8ff;
-      --accent-hover: #0090e0;
-      --text-primary: #ffffff;
-      --text-secondary: #a0a0a8;
-      --text-muted: #6b6b75;
-      --border: #2a2a30;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-primary);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* ===== Vertical Brand ===== */
-    .vertical-brand {
-      position: fixed;
-      left: 12px;
-      top: 50%;
-      transform: translateY(-50%) rotate(-90deg);
-      transform-origin: center;
-      font-size: 1.1rem;
-      font-weight: 700;
-      letter-spacing: 4px;
-      color: var(--text-muted);
-      opacity: 0.5;
-      z-index: 50;
-      pointer-events: none;
-      white-space: nowrap;
-    }
-
-    /* ===== Header ===== */
-    .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: rgba(13, 13, 15, 0.9);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 70px;
-    }
-
-    .logo {
-      font-size: 1.4rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      color: var(--text-primary);
-      display: flex;
-      align-items: center;
-      gap: 2px;
-    }
-
-    .logo-dot {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      background: var(--accent);
-      border-radius: 50%;
-      margin-left: 2px;
-    }
-
-    .nav {
-      display: flex;
-      gap: 32px;
-    }
-
-    .nav-link {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      color: var(--text-secondary);
-      transition: color 0.2s;
-      position: relative;
-    }
-
-    .nav-link:hover,
-    .nav-link.active {
-      color: var(--accent);
-    }
-
-    .nav-link.active::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--accent);
-    }
-
-    .btn-signin {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      padding: 8px 18px;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      color: var(--text-secondary);
-      transition: all 0.2s;
-    }
-
-    .btn-signin:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    /* ===== Buttons ===== */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 24px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      border-radius: 4px;
-      transition: all 0.25s;
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-hover);
-      transform: translateY(-1px);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--text-secondary);
-      border: 1px solid var(--border);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    /* ===== Hero ===== */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: 70px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-      padding: 60px 24px;
-    }
-
-    .hero-title {
-      font-size: 2.8rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-      line-height: 1.15;
-    }
-
-    .hero-subtitle {
-      font-size: 1rem;
-      color: var(--text-secondary);
-      margin-bottom: 20px;
-    }
-
-    .hero-desc {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      max-width: 420px;
-      margin-bottom: 28px;
-      line-height: 1.7;
-    }
-
-    .hero-price {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 28px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .hero-image {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .mouse-img {
-      max-width: 420px;
-      width: 100%;
-      filter: drop-shadow(0 30px 60px rgba(0, 168, 255, 0.25));
-      animation: float 6s ease-in-out infinite;
-    }
-
-    .hero-brand-text {
-      position: absolute;
-      right: -20px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 8rem;
-      font-weight: 900;
-      color: transparent;
-      -webkit-text-stroke: 2px rgba(0, 168, 255, 0.35);
-      letter-spacing: -4px;
-      pointer-events: none;
-      user-select: none;
-      line-height: 1;
-      z-index: -1;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-18px); }
-    }
-
-    /* ===== Sections Common ===== */
-    .section {
-      padding: 100px 0;
-      position: relative;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 1.8rem;
-      font-weight: 700;
-      letter-spacing: 4px;
-      color: var(--accent);
-      margin-bottom: 12px;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      font-size: 1rem;
-      color: var(--text-secondary);
-      margin-bottom: 50px;
-    }
-
-    /* ===== Products ===== */
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
-
-    .product-card {
-      background: var(--bg-card);
-      border-radius: 12px;
-      padding: 36px 24px 28px;
-      text-align: center;
-      transition: all 0.3s;
-      border: 1px solid transparent;
-    }
-
-    .product-card:hover {
-      background: var(--bg-card-hover);
-      border-color: rgba(0, 168, 255, 0.3);
-      transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    }
-
-    .product-img-wrap {
-      height: 140px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-
-    .product-img-wrap img {
-      max-height: 120px;
-      object-fit: contain;
-      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
-    }
-
-    .product-card h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-
-    /* ===== Services ===== */
-    .services {
-      overflow: hidden;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .service-card {
-      background: var(--bg-card);
-      border-radius: 12px;
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      transition: all 0.3s;
-      border: 1px solid transparent;
-    }
-
-    .service-card:hover {
-      border-color: rgba(0, 168, 255, 0.25);
-      transform: translateY(-4px);
-    }
-
-    .service-icon {
-      width: 48px;
-      height: 48px;
-      background: rgba(0, 168, 255, 0.12);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      color: var(--accent);
-    }
-
-    .service-card h3 {
-      font-size: 1.05rem;
-      font-weight: 600;
-    }
-
-    .service-card p {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    .floating-mouse {
-      position: absolute;
-      right: -40px;
-      bottom: 40px;
-      width: 220px;
-      opacity: 0.9;
-      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.6));
-      pointer-events: none;
-      transform: rotate(-15deg);
-    }
-
-    /* ===== Members ===== */
-    .members-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .member-card {
-      background: var(--bg-card);
-      border-radius: 10px;
-      padding: 32px 16px;
-      text-align: center;
-      transition: all 0.3s;
-      border: 1px solid transparent;
-    }
-
-    .member-card:hover {
-      border-color: rgba(0, 168, 255, 0.3);
-      transform: translateY(-4px);
-    }
-
-    .member-logo {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .member-logo i {
-      font-size: 2rem;
-      color: var(--accent);
-    }
-
-    .member-logo span {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-secondary);
-    }
-
-    /* ===== Contacts ===== */
-    .contacts-inner {
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 48px;
-      align-items: start;
-    }
-
-    .contact-logo {
-      margin-bottom: 28px;
-      display: inline-block;
-    }
-
-    .contact-block {
-      margin-bottom: 28px;
-    }
-
-    .contact-block h4 {
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-      color: var(--text-secondary);
-    }
-
-    .contact-block p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .contact-block i {
-      color: var(--accent);
-      width: 18px;
-    }
-
-    .social-icons {
-      display: flex;
-      gap: 14px;
-    }
-
-    .social-icons a {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--bg-card);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-secondary);
-      transition: all 0.2s;
-    }
-
-    .social-icons a:hover {
-      background: var(--accent);
-      color: #fff;
-    }
-
-    .contact-mouse {
-      margin-top: 30px;
-      max-width: 180px;
-      filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.5));
-    }
-
-    .contact-form-wrap h4 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 20px;
-      color: var(--text-secondary);
-    }
-
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 14px 16px;
-      color: var(--text-primary);
-      font-size: 0.9rem;
-      font-family: inherit;
-      transition: border-color 0.2s;
-      outline: none;
-    }
-
-    .contact-form input::placeholder,
-    .contact-form textarea::placeholder {
-      color: var(--text-muted);
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      border-color: var(--accent);
-    }
-
-    .btn-submit {
-      align-self: flex-start;
-      margin-top: 8px;
-      padding: 14px 40px;
-    }
-
-    /* ===== Footer ===== */
-    .footer {
-      background: #08080a;
-      padding: 60px 0 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .footer-inner {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 40px;
-      padding-bottom: 50px;
-    }
-
-    .footer-col h5 {
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      color: var(--text-secondary);
-      margin-bottom: 18px;
-    }
-
-    .footer-col ul {
-      list-style: none;
-    }
-
-    .footer-col li {
-      margin-bottom: 10px;
-    }
-
-    .footer-col a {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      transition: color 0.2s;
-    }
-
-    .footer-col a:hover {
-      color: var(--accent);
-    }
-
-    .footer-bottom {
-      border-top: 1px solid var(--border);
-      padding: 20px 0;
-      text-align: center;
-    }
-
-    .footer-bottom p {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      letter-spacing: 1px;
-    }
-
-    /* ===== Responsive ===== */
-    @media (max-width: 1024px) {
-      .hero-inner {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .hero-desc {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .hero-actions {
-        justify-content: center;
-      }
-
-      .hero-brand-text {
-        font-size: 5rem;
-        right: 0;
-      }
-
-      .products-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .members-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .contacts-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .floating-mouse {
-        display: none;
-      }
-
-      .vertical-brand {
-        display: none;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .nav {
-        display: none;
-      }
-
-      .hero-title {
-        font-size: 2rem;
-      }
-
-      .products-grid {
-        grid-template-columns: 1fr;
-        max-width: 320px;
-        margin: 0 auto;
-      }
-
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .members-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .footer-inner {
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
-      }
-
-      .form-row {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .members-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Tampan Slot</title>
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+-webkit-tap-highlight-color:transparent;
+}
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+min-height:100dvh;
+overflow:hidden;
+background:#0d0518;
+padding:15px;
+position:relative;
+}
+
+/* ===== SPLASH SCREEN (TANPA FOTO) ===== */
+.splash{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#0d0518;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:100;
+transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+.splash.hide{
+opacity:0;
+visibility:hidden;
+pointer-events:none;
+}
+.splash-text{
+color:#f0e6ff;
+font-size:32px;
+font-weight:800;
+letter-spacing:2px;
+background:linear-gradient(90deg,#c44dff,#e080ff,#b060ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+background-clip:text;
+animation: splashText 1.5s ease-in-out infinite alternate;
+}
+@keyframes splashText{
+0%{ opacity:0.75; transform:scale(1); filter:drop-shadow(0 0 10px rgba(180,100,255,0.4)); }
+100%{ opacity:1; transform:scale(1.05); filter:drop-shadow(0 0 25px rgba(200,120,255,0.8)); }
+}
+.splash-sub{
+margin-top:12px;
+color:rgba(220,200,255,0.75);
+font-size:14px;
+letter-spacing:3px;
+text-transform:uppercase;
+animation: splashSub 1.5s ease-in-out infinite alternate;
+}
+@keyframes splashSub{
+0%{ opacity:0.5; }
+100%{ opacity:1; }
+}
+
+/* ===== LATAR UNGU TUA ===== */
+.bg-animation{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-3;
+background:
+radial-gradient(circle at 20% 30%, rgba(120,40,180,0.4) 0%, transparent 45%),
+radial-gradient(circle at 80% 20%, rgba(160,60,220,0.3) 0%, transparent 40%),
+radial-gradient(circle at 70% 80%, rgba(90,20,140,0.35) 0%, transparent 45%),
+radial-gradient(circle at 30% 70%, rgba(140,50,200,0.25) 0%, transparent 40%),
+#0d0518;
+animation: bgPulse 8s ease-in-out infinite alternate;
+}
+@keyframes bgPulse{
+0%{ filter:hue-rotate(0deg) brightness(1); }
+100%{ filter:hue-rotate(8deg) brightness(1.12); }
+}
+
+/* Grid ungu */
+.web{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-2;
+background-image:
+linear-gradient(rgba(160,80,255,0.07) 1px, transparent 1px),
+linear-gradient(90deg, rgba(160,80,255,0.07) 1px, transparent 1px);
+background-size:55px 55px;
+animation: webMove 20s linear infinite;
+opacity:0.7;
+}
+@keyframes webMove{
+0%{ background-position:0 0; }
+100%{ background-position:55px 55px; }
+}
+
+/* Cahaya ungu bergerak */
+.glow{
+position:fixed;
+width:300px;
+height:300px;
+border-radius:50%;
+filter:blur(80px);
+z-index:-1;
+opacity:0.5;
+animation: floatGlow 12s ease-in-out infinite;
+}
+.glow.red{
+background:#9b30ff;
+top:8%;
+left:5%;
+}
+.glow.blue{
+background:#c44dff;
+bottom:8%;
+right:5%;
+animation-delay:4s;
+}
+@keyframes floatGlow{
+0%,100%{ transform:translate(0,0) scale(1); }
+50%{ transform:translate(35px,28px) scale(1.2); }
+}
+
+/* ===== EFEK PETIR LAYAR ===== */
+.lightning{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:2;
+opacity:0;
+background:transparent;
+}
+.lightning.flash{
+animation: lightningFlash 0.4s ease-out;
+}
+@keyframes lightningFlash{
+0%{ opacity:0; background:rgba(220,180,255,0); }
+8%{ opacity:1; background:rgba(240,220,255,0.45); }
+18%{ opacity:0.2; background:rgba(200,160,255,0.12); }
+28%{ opacity:0.95; background:rgba(255,240,255,0.5); }
+45%{ opacity:0.15; background:rgba(200,160,255,0.08); }
+100%{ opacity:0; background:transparent; }
+}
+
+/* Garis petir panjang & realistis */
+.bolt{
+position:fixed;
+pointer-events:none;
+z-index:3;
+opacity:0;
+filter:drop-shadow(0 0 6px #e8c0ff) drop-shadow(0 0 18px #c070ff) drop-shadow(0 0 35px #a040ff);
+}
+.bolt.show{
+animation: boltAppear 0.45s ease-out forwards;
+}
+@keyframes boltAppear{
+0%{ opacity:0; }
+12%{ opacity:1; }
+75%{ opacity:0.85; }
+100%{ opacity:0; }
+}
+
+/* ===== SALJU ===== */
+.snowflake{
+position:fixed;
+top:-20px;
+color:#f0e6ff;
+font-size:12px;
+opacity:0.7;
+pointer-events:none;
+z-index:0;
+user-select:none;
+animation: snowfall linear infinite;
+text-shadow:0 0 6px rgba(200,160,255,0.8);
+}
+@keyframes snowfall{
+0%{
+transform:translateY(-10vh) translateX(0) rotate(0deg);
+opacity:0;
+}
+10%{
+opacity:0.75;
+}
+90%{
+opacity:0.5;
+}
+100%{
+transform:translateY(110vh) translateX(var(--drift, 20px)) rotate(360deg);
+opacity:0;
+}
+}
+
+.container{
+width:100%;
+max-width:400px;
+padding:10px 5px;
+text-align:center;
+position:relative;
+z-index:5;
+}
+
+/* ===== ANIMASI MASUK DARI ARAH ACAK ===== */
+.enter-item{
+opacity:0;
+transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.enter-item.from-left{
+transform: translateX(-80px) scale(0.9);
+}
+.enter-item.from-right{
+transform: translateX(80px) scale(0.9);
+}
+.enter-item.from-top{
+transform: translateY(-60px) scale(0.9);
+}
+.enter-item.from-bottom{
+transform: translateY(60px) scale(0.9);
+}
+.enter-item.from-scale{
+transform: scale(0.5);
+}
+.enter-item.show{
+opacity:1;
+transform: translate(0,0) scale(1);
+}
+
+/* Foto */
+.photo{
+width:160px;
+height:160px;
+object-fit:cover;
+border-radius:20px;
+margin:0 auto 18px;
+border:3px solid rgba(180,100,255,0.45);
+box-shadow:
+0 0 20px rgba(160,60,255,0.5),
+0 0 40px rgba(100,30,180,0.3);
+display:block;
+}
+
+/* ===== JUDUL + PETIR DARI TULISAN ===== */
+.welcome{
+color:#f0e6ff;
+font-size:24px;
+font-weight:bold;
+margin-bottom:25px;
+text-shadow:
+0 0 12px rgba(180,100,255,0.75),
+0 0 25px rgba(140,50,220,0.45);
+letter-spacing:0.5px;
+line-height:1.35;
+position:relative;
+}
+.welcome span{
+display:block;
+font-size:20px;
+font-weight:800;
+margin-top:6px;
+background:linear-gradient(90deg,#c44dff,#e080ff,#b060ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+background-clip:text;
+position:relative;
+}
+
+/* Petir realistis dari tulisan */
+.text-bolt{
+position:absolute;
+pointer-events:none;
+z-index:6;
+opacity:0;
+filter:drop-shadow(0 0 5px #e8c0ff) drop-shadow(0 0 12px #c070ff) drop-shadow(0 0 22px #a040ff);
+}
+.text-bolt.show{
+animation: textBolt 0.5s ease-out forwards;
+}
+@keyframes textBolt{
+0%{ opacity:0; }
+15%{ opacity:1; }
+70%{ opacity:0.9; }
+100%{ opacity:0; }
+}
+
+/* Kilat di tulisan */
+.welcome.flash-text{
+animation: textFlash 0.4s ease-out;
+}
+@keyframes textFlash{
+0%{ filter:brightness(1); text-shadow:0 0 12px rgba(180,100,255,0.75); }
+15%{ filter:brightness(1.8); text-shadow:0 0 20px #e0b0ff, 0 0 40px #c070ff, 0 0 60px #a040ff; }
+30%{ filter:brightness(1.2); }
+50%{ filter:brightness(1.6); text-shadow:0 0 25px #f0d0ff, 0 0 50px #d080ff; }
+100%{ filter:brightness(1); text-shadow:0 0 12px rgba(180,100,255,0.75), 0 0 25px rgba(140,50,220,0.45); }
+}
+
+/* Tombol */
+.btn{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:16px 18px;
+margin:14px 0;
+text-decoration:none;
+color:white;
+border-radius:16px;
+font-size:16px;
+font-weight:bold;
+background:linear-gradient(135deg,#7b2fff,#c44dff);
+box-shadow:
+0 0 14px rgba(160,60,255,0.5),
+0 4px 12px rgba(90,20,160,0.35);
+transition: all 0.3s ease, opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+position:relative;
+overflow:hidden;
+user-select:none;
+}
+.btn:nth-child(2){ background:linear-gradient(135deg,#6a1fd4,#a33dff); }
+.btn:nth-child(3){ background:linear-gradient(135deg,#8b3dff,#d060ff); }
+.btn:nth-child(4){ background:linear-gradient(135deg,#5a15bb,#b040ee); }
+.btn:nth-child(5){ background:linear-gradient(135deg,#4a0faa,#c050ff); }
+
+/* ===== TOMBOL MENYALA SAAT PETIR ===== */
+.btn.lightning-glow{
+animation: btnLightning 0.5s ease-out;
+}
+@keyframes btnLightning{
+0%{ 
+filter:brightness(1); 
+box-shadow:0 0 14px rgba(160,60,255,0.5), 0 4px 12px rgba(90,20,160,0.35);
+}
+20%{ 
+filter:brightness(1.7); 
+box-shadow:0 0 30px #e0b0ff, 0 0 50px #c070ff, 0 0 70px #a040ff, 0 4px 20px rgba(200,100,255,0.8);
+transform:scale(1.04);
+}
+40%{ 
+filter:brightness(1.3); 
+}
+60%{ 
+filter:brightness(1.6); 
+box-shadow:0 0 35px #f0d0ff, 0 0 55px #d080ff, 0 0 80px #b050ff;
+}
+100%{ 
+filter:brightness(1); 
+box-shadow:0 0 14px rgba(160,60,255,0.5), 0 4px 12px rgba(90,20,160,0.35);
+transform:scale(1);
+}
+}
+
+/* HOVER */
+.btn:hover{
+transform: scale(1.06);
+box-shadow:
+0 0 22px rgba(200,100,255,0.65),
+0 8px 20px rgba(120,40,200,0.45);
+filter:brightness(1.12);
+}
+.btn:hover .arrow{
+background:rgba(255,255,255,.35);
+transform:scale(1.15);
+}
+.btn:active{
+transform: scale(0.96);
+filter:brightness(1.05);
+}
+
+/* RIPPLE */
+.ripple{
+position:absolute;
+border-radius:50%;
+background:rgba(255,255,255,0.4);
+transform:scale(0);
+animation:ripple-animation 0.6s linear;
+pointer-events:none;
+}
+@keyframes ripple-animation{
+to{
+transform:scale(4);
+opacity:0;
+}
+}
+
+.arrow{
+width:40px;
+height:40px;
+display:flex;
+justify-content:center;
+align-items:center;
+border-radius:50%;
+background:rgba(255,255,255,.18);
+font-size:20px;
+flex-shrink:0;
+transition:0.3s;
+}
+.btn:active .arrow{
+background:rgba(255,255,255,.3);
+transform:scale(1.1);
+}
+
+/* Responsive */
+@media (max-width:380px){
+.photo{ width:140px; height:140px; }
+.welcome{ font-size:21px; }
+.welcome span{ font-size:18px; }
+.splash-text{ font-size:26px; }
+.btn{ padding:15px 16px; font-size:15px; }
+.arrow{ width:36px; height:36px; font-size:18px; }
+}
+@media (min-width:420px){
+.photo{ width:175px; height:175px; }
+.welcome{ font-size:26px; }
+.splash-text{ font-size:36px; }
+}
+</style>
 </head>
 <body>
-  <!-- Vertical Brand -->
-  <div class="vertical-brand">techgear</div>
 
-  <!-- Header -->
-  <header class="header">
-    <div class="container header-inner">
-      <a href="#" class="logo">techgear<span class="logo-dot"></span></a>
-      <nav class="nav">
-        <a href="#home" class="nav-link active">HOME</a>
-        <a href="#products" class="nav-link">PRODUCTS</a>
-        <a href="#services" class="nav-link">SERVICES</a>
-        <a href="#members" class="nav-link">MEMBERS</a>
-        <a href="#contacts" class="nav-link">CONTACTS</a>
-      </nav>
-      <a href="#" class="btn-signin">SIGN IN</a>
-    </div>
-  </header>
+<!-- ===== SPLASH / LOGO PENYAMBUTAN (TANPA FOTO) ===== -->
+<div class="splash" id="splash">
+  <div class="splash-text">TAMPAN SLOT</div>
+  <div class="splash-sub">Selamat Datang</div>
+</div>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="container hero-inner">
-      <div class="hero-content">
-        <h1 class="hero-title">G502 HERO WIRELESS</h1>
-        <p class="hero-subtitle">Logitech's High Performance Wireless Gaming Mouse</p>
-        <p class="hero-desc">
-          The Hero sensor is outfitted with the most advanced & configurable sensor yet. You will see 25,600 DPI max sensor. It tracks as precisely as you aim for, delivers 0.1ms response, and works when you need it.
-        </p>
-        <div class="hero-price">USD 99.99</div>
-        <div class="hero-actions">
-          <a href="#" class="btn btn-primary">
-            <i class="fas fa-shopping-cart"></i> ADD TO CART
-          </a>
-          <a href="#" class="btn btn-outline">MORE DETAILS</a>
-        </div>
-      </div>
-      <div class="hero-image">
-        <img src="https://i.postimg.cc/QxyYh4Jb/Chat-GPT-Image-15-Jun-2026-02-00-36.png" alt="G502 HERO WIRELESS" class="mouse-img">
-        <div class="hero-brand-text">G502</div>
-      </div>
-    </div>
-  </section>
+<!-- LATAR UNGU TUA -->
+<div class="bg-animation"></div>
+<div class="web"></div>
+<div class="glow red"></div>
+<div class="glow blue"></div>
 
-  <!-- Products Section -->
-  <section id="products" class="section products">
-    <div class="container">
-      <h2 class="section-title">PRODUCTS</h2>
-      <p class="section-subtitle">Which type of gear are you looking for?</p>
-      <div class="products-grid">
-        <div class="product-card">
-          <div class="product-img-wrap">
-            <img src="https://resource.logitechg.com/w_300,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g502-hero/g502-hero-gallery-1.png?v=1" alt="Gaming Mouse">
-          </div>
-          <h3>Gaming</h3>
-        </div>
-        <div class="product-card">
-          <div class="product-img-wrap">
-            <img src="https://resource.logitech.com/w_300,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-3s/gallery/mx-master-3s-mouse-top-view-graphite.png" alt="Graphic Design Mouse">
-          </div>
-          <h3>Graphic Design</h3>
-        </div>
-        <div class="product-card">
-          <div class="product-img-wrap">
-            <img src="https://resource.logitech.com/w_300,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/m190/gallery/m190-mouse-top-view-black.png" alt="Office Mouse">
-          </div>
-          <h3>Office & Others</h3>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- Layer petir layar -->
+<div class="lightning" id="lightning"></div>
 
-  <!-- Services Section -->
-  <section id="services" class="section services">
-    <div class="container">
-      <h2 class="section-title">SERVICES</h2>
-      <p class="section-subtitle">We provide more than high-tech products!</p>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fas fa-shield-alt"></i>
-          </div>
-          <h3>Lifetime Guarantee</h3>
-          <p>Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fas fa-piggy-bank"></i>
-          </div>
-          <h3>Good Price</h3>
-          <p>Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fas fa-laptop-code"></i>
-          </div>
-          <h3>Free Software Updates</h3>
-          <p>Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fas fa-headset"></i>
-          </div>
-          <h3>24/7 Support</h3>
-          <p>Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-        </div>
-      </div>
-    </div>
-    <!-- Floating mouse decoration -->
-    <img src="https://resource.logitechg.com/w_300,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g502-hero/g502-hero-gallery-1.png?v=1" alt="" class="floating-mouse">
-  </section>
+<!-- ===== HALAMAN UTAMA ===== -->
+<div class="container" id="mainPage">
+  <img src="https://i.postimg.cc/rpcwK3NN/Chat-GPT-Image-15-Jun-2026-02-00-40.png" alt="Tampan Slot" class="photo enter-item">
+  
+  <div class="welcome enter-item" id="welcomeText">
+    Selamat Datang di<br>
+    <span>TAMPAN SLOT</span>
+  </div>
 
-  <!-- Members Section -->
-  <section id="members" class="section members">
-    <div class="container">
-      <h2 class="section-title">MEMBERS</h2>
-      <p class="section-subtitle">We proudly introduce our powerful members</p>
-      <div class="members-grid">
-        <div class="member-card">
-          <div class="member-logo">
-            <i class="fas fa-bolt"></i>
-            <span>Electros Softwares</span>
-          </div>
-        </div>
-        <div class="member-card">
-          <div class="member-logo">
-            <i class="fas fa-cube"></i>
-            <span>Tone Tech Labs</span>
-          </div>
-        </div>
-        <div class="member-card">
-          <div class="member-logo">
-            <i class="fas fa-gamepad"></i>
-            <span>TC Predator Gaming</span>
-          </div>
-        </div>
-        <div class="member-card">
-          <div class="member-logo">
-            <i class="fas fa-rocket"></i>
-            <span>SprintPay</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <a class="btn enter-item" href="https://tampanslot1.lat/daftar?ref=gantengkali2">
+    BONUS MEMBER BARU
+    <span class="arrow">➜</span>
+  </a>
+  <a class="btn enter-item" href="https://tampanslot1.lat/daftar?ref=gantengkali2">
+    LINK UTAMA
+    <span class="arrow">➜</span>
+  </a>
+  <a class="btn enter-item" href="https://tampanslot1.lat/daftar?ref=gantengkali2">
+    LINK GACOR
+    <span class="arrow">➜</span>
+  </a>
+  <a class="btn enter-item" href="https://rtp-t-am-pan-slot.pages.dev">
+    LNK RTP
+    <span class="arrow">➜</span>
+  </a>
+</div>
 
-  <!-- Contacts Section -->
-  <section id="contacts" class="section contacts">
-    <div class="container">
-      <h2 class="section-title">CONTACTS</h2>
-      <p class="section-subtitle">Some ways for you to contact us</p>
-      <div class="contacts-inner">
-        <div class="contact-info">
-          <a href="#" class="logo contact-logo">techgear<span class="logo-dot"></span></a>
-          <div class="contact-block">
-            <h4>Direct Channels</h4>
-            <p><i class="fas fa-phone"></i> +021 1234 5678</p>
-            <p><i class="fas fa-envelope"></i> support@techgear.co</p>
-          </div>
-          <div class="contact-block">
-            <h4>Social Media</h4>
-            <div class="social-icons">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-          </div>
-          <img src="https://resource.logitech.com/w_280,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-3s/gallery/mx-master-3s-mouse-top-view-graphite.png" alt="Mouse" class="contact-mouse">
-        </div>
-        <div class="contact-form-wrap">
-          <h4>Feel free to send us your message</h4>
-          <form class="contact-form">
-            <div class="form-row">
-              <input type="text" placeholder="Your name" required>
-              <input type="email" placeholder="Your email" required>
-            </div>
-            <input type="text" placeholder="Subject" required>
-            <textarea placeholder="Message" rows="5" required></textarea>
-            <button type="submit" class="btn btn-primary btn-submit">SUBMIT</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
+<script>
+// ===== SPLASH 5 DETIK LALU MASUK HALAMAN UTAMA =====
+setTimeout(() => {
+  document.getElementById('splash').classList.add('hide');
+  animateEnterItems();
+}, 5000);
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-col">
-        <h5>PRODUCTS</h5>
-        <ul>
-          <li><a href="#">Gaming</a></li>
-          <li><a href="#">Graphic Design</a></li>
-          <li><a href="#">Office</a></li>
-          <li><a href="#">Family</a></li>
-          <li><a href="#">Personalized</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>SHOWROOMS</h5>
-        <ul>
-          <li><a href="#">Showroom Washington, D.C.</a></li>
-          <li><a href="#">Showroom New York City</a></li>
-          <li><a href="#">Showroom San Francisco</a></li>
-          <li><a href="#">Showroom Seattle</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>FAMILY MEMBERS</h5>
-        <ul>
-          <li><a href="#">Electros Softwares</a></li>
-          <li><a href="#">Tone Tech Labs</a></li>
-          <li><a href="#">TC Predator Gaming</a></li>
-          <li><a href="#">V Protection</a></li>
-          <li><a href="#">A.I System</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>HELP CENTER</h5>
-        <ul>
-          <li><a href="#">FAQs</a></li>
-          <li><a href="#">Terms of Use</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>COPYRIGHT © 2020 TECHGEAR INC. ALL RIGHTS RESERVED</p>
-    </div>
-  </footer>
+// ===== ANIMASI MASUK DARI ARAH ACAK =====
+function animateEnterItems() {
+  const items = document.querySelectorAll('.enter-item');
+  const directions = ['from-left', 'from-right', 'from-top', 'from-bottom', 'from-scale'];
 
-  <script>
-    // Smooth scroll for nav links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
+  items.forEach((item, index) => {
+    const dir = directions[Math.floor(Math.random() * directions.length)];
+    item.classList.add(dir);
 
-    // Active nav on scroll
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-link');
+    setTimeout(() => {
+      item.classList.add('show');
+    }, 150 + index * 120);
+  });
+}
 
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (scrollY >= sectionTop - 100) {
-          current = section.getAttribute('id');
-        }
-      });
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
-          link.classList.add('active');
-        }
-      });
-    });
-  </script>
+// ===== SALJU =====
+function createSnowflakes() {
+  const snowCount = 60;
+  const symbols = ['❄', '❅', '❆', '•', '·'];
+
+  for (let i = 0; i < snowCount; i++) {
+    const flake = document.createElement('div');
+    flake.classList.add('snowflake');
+    flake.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+    flake.style.left = Math.random() * 100 + 'vw';
+    const size = Math.random() * 14 + 8;
+    flake.style.fontSize = size + 'px';
+    flake.style.opacity = Math.random() * 0.5 + 0.3;
+    const duration = Math.random() * 12 + 10;
+    flake.style.animationDuration = duration + 's';
+    flake.style.animationDelay = Math.random() * 15 + 's';
+    const drift = (Math.random() * 60 - 30) + 'px';
+    flake.style.setProperty('--drift', drift);
+    document.body.appendChild(flake);
+  }
+}
+createSnowflakes();
+
+// ===== FUNGSI PEMBUAT JALUR PETIR REALISTIS =====
+function generateLightningPath(height, width = 40) {
+  let path = `M ${width/2} 0`;
+  let x = width / 2;
+  let y = 0;
+  const segments = 10 + Math.floor(Math.random() * 8);
+  const stepY = height / segments;
+
+  for (let i = 0; i < segments; i++) {
+    const offsetX = (Math.random() - 0.5) * (width * 0.85);
+    x = Math.max(3, Math.min(width - 3, x + offsetX));
+    y += stepY * (0.65 + Math.random() * 0.7);
+    path += ` L ${x.toFixed(1)} ${y.toFixed(1)}`;
+  }
+  return path;
+}
+
+// ===== PETIR REALISTIS DARI TULISAN =====
+function createTextBolt() {
+  const welcome = document.getElementById('welcomeText');
+  if (!welcome) return;
+  const rect = welcome.getBoundingClientRect();
+
+  const bolt = document.createElement('div');
+  bolt.classList.add('text-bolt');
+
+  const height = 90 + Math.random() * 110; // petir lebih panjang
+  const width = 36;
+  const pathMain = generateLightningPath(height, width);
+  const pathBranch = generateLightningPath(height * 0.4, width * 0.7);
+
+  bolt.innerHTML = `
+    <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" style="overflow:visible">
+      <path d="${pathMain}" 
+            stroke="#f8f0ff" 
+            stroke-width="2.2" 
+            stroke-linecap="round" 
+            stroke-linejoin="round"
+            fill="none"/>
+      <path d="${pathMain}" 
+            stroke="#d8a0ff" 
+            stroke-width="1" 
+            stroke-linecap="round" 
+            fill="none"
+            opacity="0.9"/>
+      <path d="${pathBranch}" 
+            stroke="#e8c8ff" 
+            stroke-width="1.3" 
+            stroke-linecap="round" 
+            fill="none"
+            opacity="0.75"
+            transform="translate(6, ${height * 0.2})"/>
+    </svg>
+  `;
+
+  // Posisi acak di sekitar tulisan
+  const offsetX = (Math.random() - 0.5) * rect.width * 1.1;
+  const offsetY = -10 + Math.random() * 15;
+
+  bolt.style.left = (rect.left + rect.width / 2 + offsetX - width / 2) + 'px';
+  bolt.style.top = (rect.top + offsetY) + 'px';
+
+  document.body.appendChild(bolt);
+  requestAnimationFrame(() => bolt.classList.add('show'));
+  setTimeout(() => bolt.remove(), 550);
+}
+
+function flashText() {
+  const welcome = document.getElementById('welcomeText');
+  if (!welcome) return;
+  welcome.classList.remove('flash-text');
+  void welcome.offsetWidth;
+  welcome.classList.add('flash-text');
+
+  // 2–4 petir realistis keluar dari tulisan
+  const count = 2 + Math.floor(Math.random() * 3);
+  for (let i = 0; i < count; i++) {
+    setTimeout(createTextBolt, i * 70);
+  }
+}
+
+// ===== TOMBOL MENYALA BERGANTIAN ACAK =====
+function flashButtonsRandom() {
+  const buttons = Array.from(document.querySelectorAll('.btn'));
+  if (!buttons.length) return;
+  const shuffled = buttons.sort(() => Math.random() - 0.5);
+  const howMany = 1 + Math.floor(Math.random() * 3);
+
+  shuffled.slice(0, howMany).forEach((btn, index) => {
+    setTimeout(() => {
+      btn.classList.remove('lightning-glow');
+      void btn.offsetWidth;
+      btn.classList.add('lightning-glow');
+    }, index * 90);
+  });
+}
+
+// ===== PETIR LAYAR PANJANG & REALISTIS =====
+function createBolt() {
+  const bolt = document.createElement('div');
+  bolt.classList.add('bolt');
+
+  const height = 320 + Math.random() * 280;
+  const startX = 5 + Math.random() * 90;
+  const pathMain = generateLightningPath(height, 60);
+  const pathBranch = generateLightningPath(height * 0.45, 40);
+
+  bolt.innerHTML = `
+    <svg width="60" height="${height}" viewBox="0 0 60 ${height}" fill="none" style="overflow:visible">
+      <path d="${pathMain}" 
+            stroke="#f8f0ff" 
+            stroke-width="2.8" 
+            stroke-linecap="round" 
+            stroke-linejoin="round"
+            fill="none"/>
+      <path d="${pathMain}" 
+            stroke="#d8a0ff" 
+            stroke-width="1.2" 
+            stroke-linecap="round" 
+            fill="none"
+            opacity="0.9"/>
+      <path d="${pathBranch}" 
+            stroke="#e8c8ff" 
+            stroke-width="1.6" 
+            stroke-linecap="round" 
+            fill="none"
+            opacity="0.7"
+            transform="translate(8, ${height * 0.25})"/>
+    </svg>
+  `;
+
+  bolt.style.left = startX + 'vw';
+  bolt.style.top = (Math.random() * 8 - 2) + 'vh';
+  document.body.appendChild(bolt);
+
+  requestAnimationFrame(() => bolt.classList.add('show'));
+  setTimeout(() => bolt.remove(), 500);
+}
+
+function triggerLightning() {
+  const lightning = document.getElementById('lightning');
+  lightning.classList.remove('flash');
+  void lightning.offsetWidth;
+  lightning.classList.add('flash');
+
+  const count = 1 + Math.floor(Math.random() * 3);
+  for (let i = 0; i < count; i++) {
+    setTimeout(createBolt, i * 60);
+  }
+
+  if (document.getElementById('splash').classList.contains('hide')) {
+    flashText();
+    flashButtonsRandom();
+  }
+}
+
+function scheduleLightning() {
+  const delay = 2800 + Math.random() * 4500;
+  setTimeout(() => {
+    triggerLightning();
+    scheduleLightning();
+  }, delay);
+}
+
+// ===== PETIR LANGSUNG MULAI =====
+triggerLightning();
+scheduleLightning();
+
+function scheduleTextLightning() {
+  const delay = 2500 + Math.random() * 2500;
+  setTimeout(() => {
+    if (document.getElementById('splash').classList.contains('hide')) {
+      flashText();
+      flashButtonsRandom();
+    }
+    scheduleTextLightning();
+  }, delay);
+}
+setTimeout(scheduleTextLightning, 5200);
+
+// ===== RIPPLE =====
+document.querySelectorAll('.btn').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    const oldRipple = this.querySelector('.ripple');
+    if (oldRipple) oldRipple.remove();
+
+    const ripple = document.createElement('span');
+    ripple.classList.add('ripple');
+
+    const rect = this.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    const x = e.clientX - rect.left - size / 2;
+    const y = e.clientY - rect.top - size / 2;
+
+    ripple.style.width = ripple.style.height = size + 'px';
+    ripple.style.left = x + 'px';
+    ripple.style.top = y + 'px';
+
+    this.appendChild(ripple);
+
+    setTimeout(() => {
+      ripple.remove();
+    }, 600);
+  });
+});
+</script>
 </body>
 </html>
