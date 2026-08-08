@@ -12,6 +12,10 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'AW-18355823633');
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied'
+  });
 </script>
 
 <style>
@@ -525,7 +529,7 @@ function createTextBolt() {
   const rect = welcome.getBoundingClientRect();
   const bolt = document.createElement('div');
   bolt.classList.add('text-bolt');
-  const height = 90 + Math.random() * 110; // petir lebih panjang
+  const height = 90 + Math.random() * 110;
   const width = 36;
   const pathMain = generateLightningPath(height, width);
   const pathBranch = generateLightningPath(height * 0.4, width * 0.7);
@@ -552,7 +556,6 @@ function createTextBolt() {
             transform="translate(6, ${height * 0.2})"/>
     </svg>
   `;
-  // Posisi acak di sekitar tulisan
   const offsetX = (Math.random() - 0.5) * rect.width * 1.1;
   const offsetY = -10 + Math.random() * 15;
   bolt.style.left = (rect.left + rect.width / 2 + offsetX - width / 2) + 'px';
@@ -567,7 +570,6 @@ function flashText() {
   welcome.classList.remove('flash-text');
   void welcome.offsetWidth;
   welcome.classList.add('flash-text');
-  // 2–4 petir realistis keluar dari tulisan
   const count = 2 + Math.floor(Math.random() * 3);
   for (let i = 0; i < count; i++) {
     setTimeout(createTextBolt, i * 70);
@@ -645,7 +647,6 @@ function scheduleLightning() {
     scheduleLightning();
   }, delay);
 }
-// ===== PETIR LANGSUNG MULAI =====
 triggerLightning();
 scheduleLightning();
 function scheduleTextLightning() {
