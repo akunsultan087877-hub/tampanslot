@@ -423,6 +423,217 @@ transform:scale(1.1);
 .welcome{ font-size:26px; }
 .splash-text{ font-size:36px; }
 }
+
+/* ===== MODERN STORE UI ===== */
+.container{
+  width:100%;
+  max-width:430px;
+  padding:18px 6px 28px;
+  text-align:center;
+  position:relative;
+  z-index:5;
+}
+
+.brand-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:8px 14px;
+  border:1px solid rgba(224,180,255,.28);
+  border-radius:999px;
+  color:#ead8ff;
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:2px;
+  box-shadow:0 0 25px rgba(160,70,255,.15);
+  margin-bottom:18px;
+}
+
+.hero{
+  position:relative;
+  overflow:hidden;
+  padding:28px 18px 24px;
+  border:1px solid rgba(255,255,255,.11);
+  border-radius:28px;
+  background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.035));
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  box-shadow:0 20px 60px rgba(0,0,0,.30), inset 0 1px rgba(255,255,255,.10);
+  margin-bottom:18px;
+}
+
+.hero-orb{
+  position:absolute;
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  top:-95px;
+  right:-70px;
+  background:rgba(196,77,255,.25);
+  filter:blur(15px);
+}
+
+.hero-kicker{
+  position:relative;
+  color:#d9b6ff;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:3px;
+  margin-bottom:9px;
+}
+
+.hero h1{
+  position:relative;
+  margin:0;
+  color:#fff;
+  font-size:34px;
+  line-height:1.05;
+  font-weight:900;
+  letter-spacing:-1px;
+  text-shadow:0 5px 30px rgba(0,0,0,.25);
+}
+
+.hero h1 span{
+  display:block;
+  background:linear-gradient(90deg,#d77bff,#fff,#b765ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.hero p{
+  position:relative;
+  margin:14px auto 0;
+  max-width:340px;
+  color:rgba(239,228,255,.72);
+  font-size:13px;
+  line-height:1.65;
+}
+
+.menu-grid{
+  display:grid;
+  gap:11px;
+}
+
+.menu-card{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  min-height:74px;
+  padding:12px 13px;
+  color:#fff;
+  text-decoration:none;
+  text-align:left;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:20px;
+  background:linear-gradient(110deg,rgba(255,255,255,.10),rgba(255,255,255,.045));
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  box-shadow:0 12px 35px rgba(0,0,0,.22), inset 0 1px rgba(255,255,255,.08);
+  transition:transform .28s ease, border-color .28s ease, box-shadow .28s ease, background .28s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+.menu-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.08),transparent);
+  transform:translateX(-110%);
+  transition:transform .65s ease;
+}
+
+.menu-card:hover{
+  transform:translateY(-4px) scale(1.012);
+  border-color:rgba(214,151,255,.40);
+  background:linear-gradient(110deg,rgba(173,79,255,.18),rgba(255,255,255,.065));
+  box-shadow:0 16px 40px rgba(95,25,160,.30), 0 0 24px rgba(190,90,255,.13);
+}
+
+.menu-card:hover::before{
+  transform:translateX(110%);
+}
+
+.card-icon{
+  width:46px;
+  height:46px;
+  flex:0 0 46px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:15px;
+  color:#fff;
+  font-size:20px;
+  background:linear-gradient(145deg,rgba(196,77,255,.95),rgba(103,35,190,.95));
+  box-shadow:0 7px 20px rgba(129,44,218,.32), inset 0 1px rgba(255,255,255,.22);
+}
+
+.card-copy{
+  min-width:0;
+  flex:1;
+}
+
+.card-copy strong{
+  display:block;
+  font-size:15px;
+  font-weight:800;
+  letter-spacing:.1px;
+}
+
+.card-copy small{
+  display:block;
+  margin-top:4px;
+  color:rgba(235,220,255,.60);
+  font-size:11px;
+}
+
+.card-arrow{
+  width:34px;
+  height:34px;
+  flex:0 0 34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  color:#fff;
+  background:rgba(255,255,255,.08);
+  transition:.28s ease;
+}
+
+.menu-card:hover .card-arrow{
+  transform:translateX(3px);
+  background:rgba(255,255,255,.16);
+}
+
+.trust-row{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:8px 14px;
+  margin:17px 8px 0;
+  color:rgba(231,215,255,.48);
+  font-size:9px;
+  letter-spacing:.2px;
+}
+
+.footer-note{
+  margin-top:20px;
+  color:rgba(230,210,255,.32);
+  font-size:9px;
+  letter-spacing:.8px;
+}
+
+@media (max-width:380px){
+  .hero{padding:25px 15px 22px}
+  .hero h1{font-size:30px}
+  .menu-card{min-height:70px}
+  .card-icon{width:43px;height:43px;flex-basis:43px}
+}
+
 </style>
 </head>
 <body>
@@ -440,22 +651,60 @@ transform:scale(1.1);
 <div class="lightning" id="lightning"></div>
 <!-- ===== HALAMAN UTAMA ===== -->
 <div class="container" id="mainPage">
-  <a class="btn enter-item" href="https://tampanslot1.lat/daftar?ref=gantengkali2">
-    TAMPAN>termurah
-    <span class="arrow">➜</span>
-  </a>
-  <a class="btn enter-item" href="https://a8.azkabet12.site/?ref=gantengkali2">
-    AZKA>promo terbaru
-    <span class="arrow">➜</span>
-  </a>
-  <a class="btn enter-item" href="https://silitoto2.net/register?referral_code=gantengkali3">
-    SILI>caseback
-    <span class="arrow">➜</span>
-  </a>
-  <a class="btn enter-item" href="https://rtp-t-am-pan-slot.pages.dev">
-    terjangkau
-    <span class="arrow">➜</span>
-  </a>
+  <div class="brand-badge enter-item">✦ PREMIUM STORE</div>
+
+  <div class="hero enter-item">
+    <div class="hero-orb"></div>
+    <div class="hero-kicker">WELCOME TO OUR STORE</div>
+    <h1>Belanja <span>Lebih Elegan</span></h1>
+    <p>Pilih menu favoritmu dan temukan penawaran terbaik dengan tampilan modern yang nyaman digunakan.</p>
+  </div>
+
+  <div class="menu-grid">
+    <a class="menu-card enter-item" href="#" aria-label="Menu utama">
+      <div class="card-icon">⌂</div>
+      <div class="card-copy">
+        <strong>Menu Utama</strong>
+        <small>Jelajahi pilihan terbaru</small>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <a class="menu-card enter-item" href="#" aria-label="Promo">
+      <div class="card-icon">✦</div>
+      <div class="card-copy">
+        <strong>Promo Terbaru</strong>
+        <small>Lihat penawaran pilihan</small>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <a class="menu-card enter-item" href="#" aria-label="Koleksi">
+      <div class="card-icon">◇</div>
+      <div class="card-copy">
+        <strong>Koleksi Pilihan</strong>
+        <small>Produk yang sedang populer</small>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <a class="menu-card enter-item" href="#" aria-label="Hubungi kami">
+      <div class="card-icon">✉</div>
+      <div class="card-copy">
+        <strong>Hubungi Kami</strong>
+        <small>Butuh bantuan? Kami siap</small>
+      </div>
+      <div class="card-arrow">→</div>
+    </a>
+  </div>
+
+  <div class="trust-row enter-item">
+    <span>● Tampilan responsif</span>
+    <span>● Cepat & ringan</span>
+    <span>● Nyaman di mobile</span>
+  </div>
+
+  <div class="footer-note enter-item">© 2026 Premium Store · Semua hak dilindungi</div>
 </div>
 <script>
 // ===== SPLASH 5 DETIK LALU MASUK HALAMAN UTAMA =====
@@ -625,8 +874,7 @@ function triggerLightning() {
     setTimeout(createBolt, i * 60);
   }
   if (document.getElementById('splash').classList.contains('hide')) {
-    flashText();
-    flashButtonsRandom();
+
   }
 }
 function scheduleLightning() {
@@ -641,14 +889,11 @@ scheduleLightning();
 function scheduleTextLightning() {
   const delay = 2500 + Math.random() * 2500;
   setTimeout(() => {
-    if (document.getElementById('splash').classList.contains('hide')) {
-      flashText();
-      flashButtonsRandom();
-    }
+    
     scheduleTextLightning();
   }, delay);
 }
-setTimeout(scheduleTextLightning, 5200);
+
 // ===== RIPPLE =====
 document.querySelectorAll('.btn').forEach(btn => {
   btn.addEventListener('click', function(e) {
